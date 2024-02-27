@@ -2,7 +2,9 @@ local function config()
   require('bufferline').setup({
     options = {
       buffer_close_icon = '',
+      show_buffer_close_icons = false,
       mode = 'buffers',
+      themable = true,
       offsets = {
         {
           filetype = 'neo-tree',
@@ -11,12 +13,10 @@ local function config()
           padding = 1,
         },
       },
-      diagnostics = 'nvim_lsp',
-      indicator = {
-        -- icon = '  ', -- this should be omitted if indicator style is not 'icon'
-        style = 'icon',
-      },
-      -- separator_style = "slope"
+      diagnostics = false,
+      indicator = { style = 'icon' },
+      separator_style = 'thin',
+      color_icons = true,
     },
   })
 end
