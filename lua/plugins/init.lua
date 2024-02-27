@@ -20,4 +20,5 @@ lazy.setup({
   require('plugins.lsp'),
   require('plugins.neotree'),
   require('plugins.treesitter'),
+  require('plugins.bufferline'),
 })
