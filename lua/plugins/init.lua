@@ -20,6 +20,7 @@ lazy.setup({
   require('plugins.cmp'),
   require('plugins.lsp'),
   require('plugins.lint'),
+  require('plugins.conform'),
   require('plugins.neotree'),
   require('plugins.treesitter'),
   require('plugins.bufferline'),
