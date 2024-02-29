@@ -8,7 +8,10 @@ local function config()
       'ruff',
       -- lua tools
       'lua-language-server',
+      'luacheck',
       'stylua',
+      -- spell
+      'cspell',
     },
   })
 end

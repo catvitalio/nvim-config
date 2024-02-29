@@ -19,6 +19,7 @@ lazy.setup({
   require('plugins.mason'),
   require('plugins.cmp'),
   require('plugins.lsp'),
+  require('plugins.lint'),
   require('plugins.neotree'),
   require('plugins.treesitter'),
   require('plugins.bufferline'),
