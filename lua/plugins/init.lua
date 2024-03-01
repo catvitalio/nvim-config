@@ -24,4 +24,6 @@ lazy.setup({
   require('plugins.neotree'),
   require('plugins.treesitter'),
   require('plugins.bufferline'),
+  require('plugins.gitsigns'),
+  require('plugins.lazygit'),
 })

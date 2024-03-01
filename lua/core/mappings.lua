@@ -14,6 +14,9 @@ vim.keymap.set('n', '<leader>/', ':CommentToggle<CR>')
 vim.keymap.set('n', '|', ':vsplit<CR>')
 vim.keymap.set('n', '\\', ':split<CR>')
 
+-- Git
+vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
+
 -- Other
 vim.keymap.set('n', '<leader>w', ':Format<CR>:w<CR>')
 vim.keymap.set('n', '<leader>x', ':BufferLinePickClose<CR>')
