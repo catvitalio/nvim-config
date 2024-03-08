@@ -17,7 +17,7 @@ local function config()
         ['end'] = { args.line2, end_line:len() },
       }
     end
-    conform.format({ async = true, lsp_fallback = true, range = range })
+    conform.format({ async = false, lsp_fallback = true, range = range })
   end, { range = true })
 end
 
