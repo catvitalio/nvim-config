@@ -16,6 +16,7 @@ vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticS
 vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define('DiagnosticSignHint', { text = ' ', texthl = 'DiagnosticSignHint' })
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]) -- hover diagnostics
 
 -- Mouse
 vim.opt.mouse = 'a'

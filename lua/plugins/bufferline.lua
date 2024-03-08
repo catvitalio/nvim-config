@@ -1,7 +1,6 @@
 local function config()
   require('bufferline').setup({
     options = {
-      buffer_close_icon = '',
       show_buffer_close_icons = false,
       mode = 'buffers',
       themable = true,

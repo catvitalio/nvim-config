@@ -26,4 +26,5 @@ lazy.setup({
   require('plugins.bufferline'),
   require('plugins.gitsigns'),
   require('plugins.lazygit'),
+  require('plugins.lualine'),
 })
