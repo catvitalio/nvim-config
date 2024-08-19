@@ -1,10 +1,11 @@
-vim.cmd.colorscheme('vscode')
+vim.cmd.colorscheme('vscode_modern')
 vim.opt.showmode = false
 vim.opt.updatetime = 100
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
 vim.opt.virtualedit = 'block'
 vim.opt.undofile = true
+vim.o.mousemoveevent = true
 
 -- Diagnostic
 vim.diagnostic.config({
@@ -16,7 +17,6 @@ vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticS
 vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define('DiagnosticSignHint', { text = ' ', texthl = 'DiagnosticSignHint' })
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]) -- hover diagnostics
 
 -- Mouse
 vim.opt.mouse = 'a'

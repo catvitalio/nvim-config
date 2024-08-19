@@ -14,8 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require('lazy')
 
 lazy.setup({
-  require('plugins.telescope'),
   require('plugins.themes'),
+  require('plugins.barbar'),
+  require('plugins.telescope'),
   require('plugins.mason'),
   require('plugins.cmp'),
   require('plugins.lsp'),
@@ -23,8 +24,8 @@ lazy.setup({
   require('plugins.conform'),
   require('plugins.neotree'),
   require('plugins.treesitter'),
-  require('plugins.bufferline'),
   require('plugins.gitsigns'),
   require('plugins.lazygit'),
   require('plugins.lualine'),
+  require('plugins.eagle'),
 })
