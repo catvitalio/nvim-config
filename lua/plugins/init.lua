@@ -28,4 +28,5 @@ lazy.setup({
   require('plugins.lazygit'),
   require('plugins.lualine'),
   require('plugins.eagle'),
+  require('plugins.codeium'),
 })

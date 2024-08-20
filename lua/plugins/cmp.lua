@@ -38,6 +38,7 @@ local function config()
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'vsnip' }, -- For vsnip users.
+      { name = 'codeium' },
     }, { { name = 'buffer' }, { name = 'nvim_lsp_signature_help' } }),
   })
 
