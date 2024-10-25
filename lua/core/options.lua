@@ -7,17 +7,6 @@ vim.opt.virtualedit = 'block'
 vim.opt.undofile = true
 vim.o.mousemoveevent = true
 
--- Diagnostic
-vim.diagnostic.config({
-  virtual_text = false,
-  signs = false,
-  underline = true,
-})
-vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = ' ', texthl = 'DiagnosticSignHint' })
-
 -- Mouse
 vim.opt.mouse = 'a'
 vim.opt.mousefocus = true
