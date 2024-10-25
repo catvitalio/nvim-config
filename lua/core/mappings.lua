@@ -24,8 +24,8 @@ vim.keymap.set('i', 'kk', '<Esc>')
 
 -- Tabs
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>]', '<Cmd>BufferPrevious<CR>', opts)
-vim.keymap.set('n', '<leader>[', '<Cmd>BufferNext<CR>', opts)
+vim.keymap.set('n', '<leader>[', '<Cmd>BufferPrevious<CR>', opts)
+vim.keymap.set('n', '<leader>]', '<Cmd>BufferNext<CR>', opts)
 vim.keymap.set('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
 vim.keymap.set('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opts)
 vim.keymap.set('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opts)
