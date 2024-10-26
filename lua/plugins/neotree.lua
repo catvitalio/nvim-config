@@ -9,6 +9,7 @@ return {
     },
     config = function()
       require('neo-tree').setup({
+        enable_diagnostics = false,
         close_if_last_window = true,
         popup_border_style = 'rounded',
         filesystem = {
@@ -17,6 +18,22 @@ return {
         },
         window = {
           position = 'float',
+        },
+        default_component_configs = {
+          git_status = {
+            symbols = {
+              -- Change type
+              added = '',
+              modified = '',
+              deleted = '✖',
+              renamed = '󰁕',
+              untracked = '',
+              ignored = '',
+              unstaged = '󰄱',
+              staged = '',
+              conflict = '',
+            },
+          },
         },
       })
     end,
