@@ -27,5 +27,5 @@ lazy.setup({
   require('plugins.gitsigns'),
   require('plugins.lazygit'),
   require('plugins.lualine'),
-  require('plugins.codeium'),
+  require('plugins.supermaven'),
 })

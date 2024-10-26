@@ -1,6 +1,11 @@
 local function config()
   local cmp = require('cmp')
   cmp.setup({
+    formatting = {
+      format = require('lspkind').cmp_format({
+        mode = 'symbol',
+      }),
+    },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -67,6 +72,7 @@ return {
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
+      'onsails/lspkind.nvim',
     },
     config = config,
   },
