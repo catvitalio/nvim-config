@@ -32,6 +32,7 @@ return {
           popup = {
             title = '',
           },
+          position = 'float',
           mappings = {
             -- jump inside directory
             ['}'] = function(state)

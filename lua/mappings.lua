@@ -8,7 +8,7 @@ local opts = {
 }
 
 -- NeoTree
-vim.keymap.set('n', '<leader>e', ':Neotree float<CR>')
+vim.keymap.set('n', '<leader>e', ':Neotree float reveal<CR>')
 
 -- Tabs (via buffers)
 vim.keymap.set('n', '<leader>[', '<Cmd>BufferPrevious<CR>', opts)
