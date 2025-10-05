@@ -23,6 +23,7 @@ vim.keymap.set('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
 vim.keymap.set('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
 vim.keymap.set('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opts)
 vim.keymap.set('n', '<leader>w', '<Cmd>bd<CR>', opts)
+vim.keymap.set('n', '<leader>t', '<Cmd>BufReopen<CR>', opts)
 
 -- Telescope
 local builtin = require('telescope.builtin')

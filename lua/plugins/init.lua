@@ -16,6 +16,7 @@ local lazy = require('lazy')
 lazy.setup({
   require('plugins.cmdline'),
   require('plugins.barbar'),
+  require('plugins.bufstack'),
   require('plugins.lualine'),
   require('plugins.themes'),
   require('plugins.telescope'),
