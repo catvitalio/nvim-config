@@ -86,4 +86,4 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
 })
 
 -- NeoTree
-vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { fg = '#404040' })
+vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { fg = '#5a5a5a' })
