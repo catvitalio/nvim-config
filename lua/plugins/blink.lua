@@ -9,17 +9,8 @@ return {
     'saghen/blink.cmp',
     version = '1.*',
     opts = {
-      keymap = {
-        preset = 'super-tab',
-        ['<C-k>'] = { 'select_prev', 'fallback' },
-        ['<C-j>'] = { 'select_next', 'fallback' },
-        ['<A-space>'] = { 'show', 'hide' },
-      },
-
-      appearance = {
-        nerd_font_variant = 'mono',
-      },
-
+      keymap = { preset = 'enter' },
+      appearance = { nerd_font_variant = 'mono' },
       completion = { documentation = { auto_show = false } },
       cmdline = { enabled = false },
 
