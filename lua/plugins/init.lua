@@ -31,5 +31,4 @@ lazy.setup({
   require('plugins.comment'),
   require('plugins.debug'),
   require('plugins.indent'),
-  require('plugins.dropbar'),
 })
