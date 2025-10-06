@@ -13,6 +13,7 @@ return {
         },
         animation = false,
         no_name_title = 'untitled',
+        auto_hide = true,
       })
     end,
     opts = {},
