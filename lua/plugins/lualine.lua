@@ -27,6 +27,19 @@ local function config()
     },
   }
 
+  filename = {
+    'filename',
+    path = 1,
+    separator = { left = '', right = '' },
+    left_padding = 2,
+    symbols = {
+      modified = '',
+      readonly = '',
+      unnamed = 'untitled',
+      newfile = 'untitled',
+    },
+  }
+
   require('lualine').setup({})
   local lualine = require('lualine')
   lualine.setup({
@@ -36,14 +49,7 @@ local function config()
       section_separators = { left = '', right = '' },
     },
     sections = {
-      lualine_a = {
-        {
-          'filename',
-          path = 1,
-          separator = { left = '', right = '' },
-          left_padding = 2,
-        },
-      },
+      lualine_a = { filename },
       lualine_b = { 'branch', 'diff' },
       lualine_c = {
         '%=', --[[ add your center components here in place of this comment ]]
@@ -55,7 +61,7 @@ local function config()
       },
     },
     inactive_sections = {
-      lualine_a = { { 'filename', path = 1 } },
+      lualine_a = { filename },
       lualine_b = {},
       lualine_c = {},
       lualine_x = {},
