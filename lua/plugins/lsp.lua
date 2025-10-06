@@ -20,6 +20,8 @@ local function config()
   vim.lsp.config('lua_ls', {})
   -- spell
   vim.lsp.enable('cookbook')
+  -- nix
+  vim.lsp.enable('nixd')
 end
 
 return {
