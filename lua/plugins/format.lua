@@ -5,6 +5,7 @@ local function config()
       python = { 'ruff_format' },
       rust = { 'rustfmt', lsp_format = 'fallback' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      nix = { 'nixfmt' },
     },
   })
 
