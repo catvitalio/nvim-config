@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require('lazy')
 
 lazy.setup({
+  require('plugins.neotree'),
   require('plugins.cmdline'),
   require('plugins.barbar'),
   require('plugins.bufstack'),
@@ -22,7 +23,6 @@ lazy.setup({
   require('plugins.telescope'),
   require('plugins.treesitter'),
   require('plugins.colorizer'),
-  require('plugins.neotree'),
   require('plugins.gitsigns'),
   require('plugins.blink'),
   require('plugins.lsp'),
@@ -30,5 +30,4 @@ lazy.setup({
   require('plugins.lint'),
   require('plugins.comment'),
   require('plugins.debug'),
-  require('plugins.indent'),
 })
