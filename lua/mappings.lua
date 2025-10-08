@@ -9,6 +9,7 @@ local opts = {
 
 -- NeoTree
 vim.keymap.set('n', '<leader>e', ':Neotree float reveal<CR>', opts)
+vim.keymap.set('n', '<leader>g', ':Neotree git_status reveal<CR>', opts)
 
 -- Tabs (via buffers)
 vim.keymap.set('n', '<leader>[', '<Cmd>BufferPrevious<CR>', opts)
