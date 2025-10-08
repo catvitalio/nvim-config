@@ -32,4 +32,5 @@ lazy.setup({
   require('plugins.debug'),
   require('plugins.conflict'),
   require('plugins.supermaven'),
+  require('plugins.scrollbar'),
 })
