@@ -17,12 +17,10 @@ return {
           group_empty_dirs = false,
           hide_gitignored = false,
           hide_dotfiles = false,
-          hide_by_name = {
-            '__pycache__',
-            '.git',
-          },
+          hide_by_name = {},
           follow_current_file = { enabled = true },
           never_show = {
+            '.git',
             '.DS_Store',
             '.pyc',
             '__pycache__',

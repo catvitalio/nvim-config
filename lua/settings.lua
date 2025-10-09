@@ -1,4 +1,4 @@
-vim.cmd.colorscheme('vscode')
+vim.cmd.colorscheme('cursor-dark')
 vim.o.termguicolors = true
 vim.opt.showmode = false
 vim.opt.updatetime = 100

@@ -1,36 +1,35 @@
 local function config()
   local colors = {
-    yellow = '#D7BA7D',
-    blue = '#569CD6',
-    green = '#6A9956',
-    black = '#1E1E1E',
-    white = '#D4D4D4',
-    red = '#CD3131',
-    grey = '#2D2D2D',
+    blue = '#A99CF5',
+    green = '#83D6C5',
+    black = '#1A1A1A',
+    white = '#E0E2EA',
+    red = '#BF616A',
+    grey = '#505050',
   }
 
-  local bubbles_theme = {
+  local custom = {
     normal = {
-      a = { fg = colors.black, bg = colors.yellow },
-      b = { fg = colors.white, bg = colors.grey },
-      c = { fg = colors.white, bg = colors.grey },
+      a = { fg = colors.white, bg = colors.black },
+      b = { fg = colors.white, bg = colors.black },
+      c = { fg = colors.grey, bg = colors.black },
     },
 
-    insert = { a = { fg = colors.black, bg = colors.blue } },
-    visual = { a = { fg = colors.black, bg = colors.green } },
-    replace = { a = { fg = colors.black, bg = colors.red } },
+    insert = { a = { fg = colors.blue, bg = colors.black } },
+    visual = { a = { fg = colors.green, bg = colors.black } },
+    replace = { a = { fg = colors.red, bg = colors.black } },
 
     inactive = {
-      a = { fg = colors.black, bg = colors.white },
-      b = { fg = colors.black, bg = colors.white },
-      c = { fg = colors.white },
+      a = { fg = colors.black, bg = colors.black },
+      b = { fg = colors.black, bg = colors.black },
+      c = { fg = colors.black, bg = colors.black },
     },
   }
 
   filename = {
     'filename',
     path = 1,
-    separator = { left = '', right = '' },
+    separator = { left = '', right = '' },
     left_padding = 2,
     symbols = {
       modified = '',
@@ -44,31 +43,36 @@ local function config()
   local lualine = require('lualine')
   lualine.setup({
     options = {
-      theme = bubbles_theme,
+      theme = custom,
       component_separators = '',
-      section_separators = { left = '', right = '' },
     },
     sections = {
-      lualine_a = { filename },
-      lualine_b = { 'branch', 'diff' },
+      lualine_a = {
+        {
+          'mode',
+          fmt = function(str)
+            return str:sub(1, 1)
+          end,
+        },
+      },
+      lualine_b = {},
       lualine_c = {
         '%=', --[[ add your center components here in place of this comment ]]
+        filename,
+        'branch',
+        'diff',
       },
       lualine_x = {},
-      lualine_y = { 'o:encoding', { 'fileformat', icons_enabled = false } },
-      lualine_z = {
-        { 'location', separator = { right = '', left = '' }, left_padding = 2 },
-      },
+      lualine_y = { 'location' },
+      lualine_z = {},
     },
     inactive_sections = {
-      lualine_a = { filename },
+      lualine_a = {},
       lualine_b = {},
       lualine_c = {},
       lualine_x = {},
       lualine_y = {},
-      lualine_z = {
-        { 'location', separator = { right = '', left = '' }, left_padding = 2 },
-      },
+      lualine_z = {},
     },
     tabline = {},
     extensions = {},

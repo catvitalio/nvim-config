@@ -1,11 +1,13 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
+  "aerial.nvim": { "branch": "master", "commit": "5e687b5a14004fa2dd9eccbee042b96869fe1557" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
   "bufstack.nvim": { "branch": "master", "commit": "2e786c01d6cd68dc61201b2e8e4adb999afa72e2" },
   "cmdline.nvim": { "branch": "main", "commit": "6ef6b895900a1fd78b8217db4165cc79e3b9a78d" },
   "conform.nvim": { "branch": "master", "commit": "9d859cbfbde7a1bd1770e7c97aef30ec5a237a71" },
+  "cursor-dark.nvim": { "branch": "main", "commit": "800e18fc29c9d34c10eea1290126169c9799c36a" },
   "git-conflict.nvim": { "branch": "main", "commit": "a1badcd070d176172940eb55d9d59029dad1c5a6" },
   "gitsigns.nvim": { "branch": "main", "commit": "1ee5c1fd068c81f9dd06483e639c2aa4587dc197" },
   "lazy.nvim": { "branch": "main", "commit": "59334064f8604ca073791c25dcc5c9698865406e" },
