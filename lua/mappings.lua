@@ -1,6 +1,3 @@
--- Leader
-vim.g.mapleader = ' '
-
 -- Hotkey options
 local opts = {
   noremap = true,
@@ -8,8 +5,8 @@ local opts = {
 }
 
 -- NeoTree
-vim.keymap.set('n', '<leader>e', ':Neotree float reveal<CR>', opts)
-vim.keymap.set('n', '<leader>g', ':Neotree git_status reveal<CR>', opts)
+vim.keymap.set('n', '<A-e>', ':Neotree float reveal<CR>', opts)
+vim.keymap.set('n', '<A-g>', ':Neotree git_status reveal<CR>', opts)
 
 -- Tabs (via buffers)
 vim.keymap.set('n', '<A-[>', '<Cmd>BufferPrevious<CR>', opts)
@@ -31,14 +28,14 @@ vim.keymap.set('n', '<A-S-t>', '<Cmd>BufReopen<CR>', opts)
 -- Telescope
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
-vim.keymap.set('n', '<leader>fw', builtin.live_grep, opts)
+vim.keymap.set('n', 'ff', builtin.find_files, opts)
+vim.keymap.set('n', 'fw', builtin.live_grep, opts)
 vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
 vim.keymap.set('n', 'gd', builtin.lsp_definitions, opts)
-vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, opts)
+vim.keymap.set('n', 'ca', vim.lsp.buf.code_action, opts)
 
 -- Format and save
-vim.keymap.set('n', '<leader>s', ':Format<CR>:w<CR>', opts)
+vim.keymap.set('n', '<A-s>', ':Format<CR>:w<CR>', opts)
 
 -- Debugger
-vim.keymap.set('n', '<leader>d', require('dapui').toggle, opts)
+vim.keymap.set('n', '<A-d>', require('dapui').toggle, opts)
