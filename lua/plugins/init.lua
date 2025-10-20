@@ -22,6 +22,7 @@ lazy.setup({
   require('plugins.themes'),
   require('plugins.telescope'),
   require('plugins.treesitter'),
+  require('plugins.treesitter-context'),
   require('plugins.colorizer'),
   require('plugins.gitsigns'),
   require('plugins.blink'),
@@ -32,4 +33,5 @@ lazy.setup({
   require('plugins.debug'),
   require('plugins.conflict'),
   require('plugins.scrollbar'),
+  require('plugins.supermaven'),
 })
