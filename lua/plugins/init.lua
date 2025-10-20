@@ -25,6 +25,7 @@ lazy.setup({
   require('plugins.treesitter-context'),
   require('plugins.colorizer'),
   require('plugins.gitsigns'),
+  require('plugins.neogit'),
   require('plugins.blink'),
   require('plugins.lsp'),
   require('plugins.format'),
