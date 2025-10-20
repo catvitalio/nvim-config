@@ -9,6 +9,8 @@ vim.opt.undofile = true
 vim.o.mousemoveevent = true
 vim.opt.fillchars = { eob = ' ' }
 vim.opt.termsync = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Hide cmd line
 vim.opt.cmdheight = 0
@@ -95,7 +97,7 @@ vim.opt.list = true
 vim.opt.listchars = {
   space = ' ',
   tab = '→ ',
-  trail = '·',
+  trail = ' ',
 }
 
 -- Hover diagnostics
