@@ -7,6 +7,7 @@ local function config()
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'prettierd', 'prettier', stop_after_first = true },
       toml = { 'taplo' },
+      yaml = { 'prettierd', 'prettier', stop_after_first = true },
       nix = { 'nixfmt' },
     },
   })

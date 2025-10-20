@@ -62,7 +62,19 @@ local function config()
         'branch',
         'diff',
       },
-      lualine_x = {},
+      lualine_x = {
+        {
+          function()
+            local api = require('supermaven-nvim.api')
+            if api.is_running() then
+              return '󰚩 SM'
+            else
+              return ''
+            end
+          end,
+          color = { fg = colors.blue },
+        },
+      },
       lualine_y = { 'location' },
       lualine_z = {},
     },

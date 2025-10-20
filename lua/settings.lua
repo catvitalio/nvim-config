@@ -13,9 +13,40 @@ vim.opt.termsync = false
 -- Hide cmd line
 vim.opt.cmdheight = 0
 
--- Fix color around borders
+-- Border color
+local border_color = '#505050'
+
+-- Configure floating windows
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = border_color, bg = 'NONE' })
+
+-- Configure Telescope borders
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = border_color, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = border_color, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = border_color, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = border_color, bg = 'NONE' })
+
+-- Configure DAP UI borders
+vim.api.nvim_set_hl(0, 'DapUIFloatBorder', { fg = border_color, bg = 'NONE' })
+
+-- Configure other common borders
+vim.api.nvim_set_hl(0, 'WinSeparator', { fg = border_color, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'VertSplit', { fg = border_color, bg = 'NONE' })
+
+-- Configure Blink completion borders
+vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { fg = border_color, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder', { fg = border_color, bg = 'NONE' })
+
+-- Set default border style for all floating windows
+local border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = border,
+})
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = border,
+})
 
 -- Mouse
 vim.opt.mouse = 'a'
@@ -49,7 +80,10 @@ vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSig
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
 
 vim.diagnostic.config({
-  float = { source = 'always' },
+  float = {
+    source = 'always',
+    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+  },
   signs = false,
   virtual_text = false,
   severity_sort = true,
@@ -59,7 +93,7 @@ vim.diagnostic.config({
 -- Invisible symbols
 vim.opt.list = true
 vim.opt.listchars = {
-  space = '·',
+  space = ' ',
   tab = '→ ',
   trail = '·',
 }
@@ -75,7 +109,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
     end
     vim.diagnostic.open_float({
       scope = 'cursor',
-      border = 'rounded',
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
       focusable = false,
       close_events = {
         'CursorMoved',
@@ -89,4 +123,6 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
 })
 
 -- NeoTree
-vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { fg = '#5a5a5a' })
+vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { fg = border_color })
+vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = border_color, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { fg = border_color, bg = 'NONE' })
