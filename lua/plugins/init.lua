@@ -35,4 +35,5 @@ lazy.setup({
   require('plugins.conflict'),
   require('plugins.scrollbar'),
   require('plugins.supermaven'),
+  require('plugins.hlslens'),
 })

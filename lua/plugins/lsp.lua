@@ -1,10 +1,4 @@
 local function config()
-  -- Configure code action UI
-  local border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
-  vim.lsp.handlers['textDocument/codeAction'] = vim.lsp.with(vim.lsp.handlers['textDocument/codeAction'], {
-    border = border,
-  })
-
   -- python
   vim.lsp.enable('basedpyright')
   vim.lsp.config('basedpyright', {

@@ -67,7 +67,7 @@ local function config()
           function()
             local api = require('supermaven-nvim.api')
             if api.is_running() then
-              return '󰚩 SM'
+              return '󰚩'
             else
               return ''
             end
