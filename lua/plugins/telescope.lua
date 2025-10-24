@@ -30,6 +30,16 @@ local function config()
         prompt_position = 'bottom',
       },
       sorting_strategy = 'ascending',
+      vimgrep_arguments = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--fixed-strings', -- Это отключает regex и включает буквальный поиск
+      },
     },
   })
 end
