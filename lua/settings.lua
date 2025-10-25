@@ -15,8 +15,11 @@ vim.opt.smartcase = true
 -- Hide cmd line
 vim.opt.cmdheight = 0
 
--- Border color
-local border_color = '#505050'
+-- Border color and style
+vim.g.border_color = '#505050'
+vim.g.border_style = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+local border_color = vim.g.border_color
+local border = vim.g.border_style
 
 -- Configure floating windows
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
@@ -40,8 +43,6 @@ vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { fg = border_color, bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder', { fg = border_color, bg = 'NONE' })
 
 -- Set default border style for all floating windows
-local border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
-
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = border,
 })
@@ -84,7 +85,7 @@ vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSig
 vim.diagnostic.config({
   float = {
     source = 'always',
-    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+    border = border,
   },
   signs = false,
   virtual_text = false,
@@ -111,7 +112,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
     end
     vim.diagnostic.open_float({
       scope = 'cursor',
-      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+      border = border,
       focusable = false,
       close_events = {
         'CursorMoved',
