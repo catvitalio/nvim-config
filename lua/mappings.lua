@@ -10,8 +10,10 @@ local opts = {
 -- NeoTree
 vim.keymap.set('n', '<A-e>', ':Neotree float reveal<CR>', opts)
 
--- Neogit
-vim.keymap.set('n', '<A-g>', ':Neogit<CR>', opts)
+-- LazyGit (via Snacks)
+vim.keymap.set('n', '<A-g>', function()
+  Snacks.lazygit()
+end, { desc = '[g]it' })
 
 -- Tabs (via buffers)
 vim.keymap.set('n', '<A-[>', '<Cmd>BufferPrevious<CR>', opts)
