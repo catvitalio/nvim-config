@@ -36,4 +36,19 @@ lazy.setup({
   require('plugins.scrollbar'),
   require('plugins.supermaven'),
   require('plugins.hlslens'),
+}, {
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    rtp = {
+      disabled_plugins = {
+        'gzip',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+      },
+    },
+  },
 })

@@ -1,16 +1,17 @@
 return {
   'nvim-treesitter/nvim-treesitter-context',
+  event = { 'BufReadPost', 'BufNewFile' },
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
   opts = {
     enable = true,
-    max_lines = 3, -- How many lines the context can take up
-    min_window_height = 20, -- Minimum editor window height to enable context
+    max_lines = 3,
+    min_window_height = 20,
     line_numbers = true,
-    multiline_threshold = 1, -- Maximum number of lines to collapse for a single context line
-    trim_scope = 'outer', -- Which context lines to discard if max_lines is exceeded
-    mode = 'cursor', -- 'cursor' or 'topline' - Line used to calculate context
-    separator = nil, -- Separator between context and content (nil for no separator)
-    zindex = 20, -- The Z-index of the context window
+    multiline_threshold = 1,
+    trim_scope = 'outer',
+    mode = 'cursor',
+    separator = nil,
+    zindex = 20,
   },
   config = function(_, opts)
     require('treesitter-context').setup(opts)

@@ -1,6 +1,10 @@
 return {
   {
     'nvim-neo-tree/neo-tree.nvim',
+    cmd = 'Neotree',
+    keys = {
+      { '<A-e>', ':Neotree float reveal<CR>', desc = 'NeoTree', silent = true },
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',

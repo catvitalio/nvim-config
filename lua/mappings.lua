@@ -7,9 +7,6 @@ local opts = {
   silent = true,
 }
 
--- NeoTree
-vim.keymap.set('n', '<A-e>', ':Neotree float reveal<CR>', opts)
-
 -- LazyGit (via Snacks)
 vim.keymap.set('n', '<A-g>', function()
   Snacks.lazygit()
@@ -32,13 +29,7 @@ vim.keymap.set('n', '<A-w>', '<Cmd>bd<CR>', opts)
 vim.keymap.set('n', '<A-S-w>', '<Cmd>bd!<CR>', opts)
 vim.keymap.set('n', '<A-S-t>', '<Cmd>BufReopen<CR>', opts)
 
--- Telescope
-local builtin = require('telescope.builtin')
-
-vim.keymap.set('n', 'ff', builtin.find_files, opts)
-vim.keymap.set('n', 'fw', builtin.live_grep, opts)
-vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
-vim.keymap.set('n', 'gd', builtin.lsp_definitions, opts)
+-- LSP
 vim.keymap.set('n', 'ca', vim.lsp.buf.code_action, opts)
 
 -- Format and save

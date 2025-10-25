@@ -1,12 +1,15 @@
 return {
   {
     'romgrk/barbar.nvim',
+    event = 'VeryLazy',
     dependencies = {
       'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons',
     },
     init = function()
       vim.g.barbar_auto_setup = false
+    end,
+    config = function()
       require('barbar').setup({
         icons = {
           buffer_index = true,
@@ -16,7 +19,6 @@ return {
         auto_hide = true,
       })
     end,
-    opts = {},
     version = '^1.0.0',
   },
 }

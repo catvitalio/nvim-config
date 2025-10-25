@@ -1,9 +1,10 @@
-local function config()
-  require('Comment').setup()
-end
-
 return {
   'numToStr/Comment.nvim',
-  opts = {},
-  config = config,
+  keys = {
+    { 'gc', mode = { 'n', 'v' }, desc = 'Comment toggle linewise' },
+    { 'gb', mode = { 'n', 'v' }, desc = 'Comment toggle blockwise' },
+  },
+  config = function()
+    require('Comment').setup()
+  end,
 }

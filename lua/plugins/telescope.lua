@@ -47,6 +47,13 @@ end
 return {
   {
     'nvim-telescope/telescope.nvim',
+    cmd = 'Telescope',
+    keys = {
+      { 'ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+      { 'fw', '<cmd>Telescope live_grep<cr>', desc = 'Live grep' },
+      { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'LSP references' },
+      { 'gd', '<cmd>Telescope lsp_definitions<cr>', desc = 'LSP definitions' },
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
