@@ -10,6 +10,12 @@ return {
         os = {
           edit = 'sh -c "nvr --remote-send q && nvr -l --remote \\$1" -- {{filename}}',
         },
+        gui = {
+          theme = {
+            activeBorderColor = { '#AA9BF5', 'bold' },
+            inactiveBorderColor = { '#505050' },
+          },
+        },
       },
       win = {
         border = 'rounded',
