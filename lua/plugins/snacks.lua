@@ -18,6 +18,12 @@ return {
         },
       },
     },
+    indent = {
+      enabled = true,
+      animate = {
+        enabled = false,
+      },
+    },
   },
   config = function(_, opts)
     require('snacks').setup(opts)
