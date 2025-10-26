@@ -58,7 +58,7 @@ return {
             with_markers = true,
             indent_size = 2,
             indent_marker = '│',
-            last_indent_marker = '└',
+            last_indent_marker = '╰',
             highlight = 'NeoTreeIndentMarker',
           },
           git_status = {
