@@ -15,6 +15,7 @@ local lazy = require('lazy')
 
 lazy.setup({
   require('plugins.neotree'),
+  require('plugins.mason'),
   require('plugins.cmdline'),
   require('plugins.barbar'),
   require('plugins.bufstack'),
