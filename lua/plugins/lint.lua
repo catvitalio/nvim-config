@@ -1,6 +1,13 @@
 local function config()
   require('lint').linters_by_ft = {
     python = { 'ruff' },
+    rust = { 'cargo' },
+    go = { 'golangci-lint' },
+    javascript = { 'eslint' },
+    json = { 'eslint' },
+    toml = { 'taplo' },
+    yaml = { 'prettierd', 'prettier', stop_after_first = true },
+    nix = { 'nixfmt' },
   }
 end
 

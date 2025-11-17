@@ -4,6 +4,7 @@ local function config()
       lua = { 'stylua' },
       python = { 'ruff_format', 'ruff_organize_imports' },
       rust = { 'rustfmt', lsp_format = 'fallback' },
+      go = { 'goimports', 'gofmt' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'prettierd', 'prettier', stop_after_first = true },
       toml = { 'taplo' },
