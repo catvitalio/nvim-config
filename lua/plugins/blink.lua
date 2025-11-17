@@ -9,7 +9,7 @@ return {
     'saghen/blink.cmp',
     version = '1.*',
     opts = {
-      keymap = { preset = 'super-tab', ['<C-Space>'] = { 'show', 'hide' } },
+      keymap = { preset = 'enter', ['<C-Space>'] = { 'show', 'hide' } },
       appearance = { nerd_font_variant = 'mono' },
       completion = { documentation = { auto_show = false } },
       cmdline = { enabled = false },
