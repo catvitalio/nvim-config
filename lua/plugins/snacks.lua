@@ -8,7 +8,7 @@ return {
       configure = true,
       config = {
         os = {
-          edit = 'sh -c "nvr --remote-send q && nvr -l --remote \\$1" -- {{filename}}',
+          edit = 'nvr --remote-send "<Esc><cmd>q<cr><cmd>e {{filename}}<cr>"',
         },
         gui = {
           theme = {
