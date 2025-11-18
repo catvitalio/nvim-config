@@ -10,6 +10,5 @@ return {
   'catgoose/nvim-colorizer.lua',
   config = config,
   event = 'BufReadPre',
-  opts = { -- set to setup table
-  },
+  opts = {},
 }
