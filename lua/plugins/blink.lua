@@ -11,7 +11,22 @@ return {
     opts = {
       keymap = { preset = 'enter', ['<C-Space>'] = { 'show', 'hide' } },
       appearance = { nerd_font_variant = 'mono' },
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        documentation = { auto_show = false },
+        menu = {
+          draw = {
+            columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
+            components = {
+              label_description = {
+                text = function(ctx)
+                  local detail = ctx.item.detail or ''
+                  return detail:gsub('\n', ' ')
+                end,
+              },
+            },
+          },
+        },
+      },
       cmdline = { enabled = false },
 
       sources = {
