@@ -15,15 +15,7 @@ return {
         documentation = { auto_show = false },
         menu = {
           draw = {
-            columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
-            components = {
-              label_description = {
-                text = function(ctx)
-                  local detail = ctx.item.detail or ''
-                  return detail:gsub('\n', ' ')
-                end,
-              },
-            },
+            columns = { { 'kind_icon' }, { 'label' }, { 'label_description' } },
           },
         },
       },
