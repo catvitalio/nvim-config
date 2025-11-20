@@ -37,6 +37,7 @@ vim.keymap.set('n', '<A-s>', ':Format<CR>:w<CR>', opts)
 
 -- Debugger
 vim.keymap.set('n', '<A-d>', require('dapui').toggle, opts)
+vim.keymap.set('n', '<A-b>', '<Cmd>DapToggleBreakpoint<CR>', opts)
 
 -- Supermaven toggle
 vim.keymap.set('n', '<leader>sm', function()

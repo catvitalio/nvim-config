@@ -7,7 +7,7 @@ vim.opt.wrap = false
 vim.opt.virtualedit = 'block'
 vim.opt.undofile = true
 vim.o.mousemoveevent = true
-vim.opt.fillchars = { eob = ' ' }
+vim.opt.fillchars = { eob = ' ', vert = ' ', vertleft = ' ', vertright = ' ' }
 vim.opt.termsync = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -30,9 +30,6 @@ vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = border_color, bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = border_color, bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = border_color, bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = border_color, bg = 'NONE' })
-
--- Configure DAP UI borders
-vim.api.nvim_set_hl(0, 'DapUIFloatBorder', { fg = border_color, bg = 'NONE' })
 
 -- Configure other common borders
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = border_color, bg = 'NONE' })
@@ -81,6 +78,18 @@ vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSi
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
+
+-- DAP breakpoint signs
+vim.fn.sign_define(
+  'DapBreakpoint',
+  { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' }
+)
+vim.fn.sign_define(
+  'DapStopped',
+  { text = '▶', texthl = 'DapStopped', linehl = 'DapStoppedLine', numhl = '' }
+)
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#BF616B' })
+vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#83D6C5' })
 
 vim.diagnostic.config({
   float = {
