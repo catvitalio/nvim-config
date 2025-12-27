@@ -12,7 +12,7 @@ local function config()
     normal = {
       a = { fg = colors.white, bg = colors.black },
       b = { fg = colors.white, bg = colors.black },
-      c = { fg = colors.grey, bg = colors.black },
+      c = { fg = colors.white, bg = colors.black },
     },
 
     insert = { a = { fg = colors.blue, bg = colors.black } },
@@ -46,7 +46,14 @@ local function config()
       theme = custom,
       component_separators = '',
       disabled_filetypes = {
-        statusline = { 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches', 'dapui_console', 'dap-repl' },
+        statusline = {
+          'dapui_scopes',
+          'dapui_breakpoints',
+          'dapui_stacks',
+          'dapui_watches',
+          'dapui_console',
+          'dap-repl',
+        },
         winbar = {},
       },
     },
