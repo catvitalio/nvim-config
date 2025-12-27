@@ -75,7 +75,7 @@ mv ~/.config/nvim ~/.config/nvim.backup
 2. Clone this repository:
 
 ```bash
-git clone <your-repo-url> ~/.config/nvim
+git clone git@github.com:catvitalio/nvim-config.git ~/.config/nvim
 ```
 
 3. Start Neovim:
