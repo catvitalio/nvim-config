@@ -2,6 +2,7 @@ return {
   {
     'nvim-neo-tree/neo-tree.nvim',
     cmd = 'Neotree',
+    lazy = true,
     keys = {
       { '<A-e>', ':Neotree float reveal<CR>', desc = 'NeoTree', silent = true },
     },
@@ -12,6 +13,13 @@ return {
       's1n7ax/nvim-window-picker',
     },
     config = function()
+      local utils = require('utils')
+      local borderColor = utils.getColor('FloatBorder')
+      local bgColor = utils.getColor('Normal', 'bg')
+
+      vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = borderColor, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { bg = bgColor })
+
       require('neo-tree').setup({
         enable_diagnostics = false,
         close_if_last_window = true,

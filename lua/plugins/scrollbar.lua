@@ -7,6 +7,16 @@ local function config()
       'dapui_watches',
       'dapui_console',
       'dap-repl',
+      'TelescopePrompt',
+      'blink-cmp-menu',
+      'dropbar_menu',
+      'dropbar_menu_fzf',
+      'DressingInput',
+      'cmp_docs',
+      'cmp_menu',
+      'noice',
+      'prompt',
+      'neo-tree',
     },
   })
   require('scrollbar.handlers.gitsigns').setup()
