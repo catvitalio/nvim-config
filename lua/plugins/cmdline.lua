@@ -1,13 +1,10 @@
 local function config()
   require('cmdline').setup({
-    cmdtype = ':', -- you can also add / and ? by using ":/?"
-    -- as a string
-
+    cmdtype = ':/?',
     window = {
       matchFuzzy = true,
-      offset = 1, -- depending on 'cmdheight' you might need to offset
-      debounceMs = 10, -- the lower the number the more responsive however
-      -- more resource intensive
+      offset = 1,
+      debounceMs = 10,
     },
 
     hl = {

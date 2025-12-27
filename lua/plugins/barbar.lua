@@ -1,3 +1,14 @@
+local function config()
+  require('barbar').setup({
+    icons = {
+      buffer_index = true,
+    },
+    animation = false,
+    no_name_title = 'untitled',
+    auto_hide = true,
+  })
+end
+
 return {
   {
     'romgrk/barbar.nvim',
@@ -8,16 +19,7 @@ return {
     init = function()
       vim.g.barbar_auto_setup = false
     end,
-    config = function()
-      require('barbar').setup({
-        icons = {
-          buffer_index = true,
-        },
-        animation = false,
-        no_name_title = 'untitled',
-        auto_hide = true,
-      })
-    end,
+    config = config,
     version = '^1.0.0',
   },
 }

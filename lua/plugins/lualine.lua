@@ -1,32 +1,34 @@
 local function config()
+  local utils = require('utils')
+  local lualine = require('lualine')
+
   local colors = {
-    blue = '#A99CF5',
-    green = '#83D6C5',
-    black = '#1A1A1A',
-    white = '#E0E2EA',
-    red = '#BF616A',
-    grey = '#505050',
+    bg = utils.getColor('Normal', 'bg'),
+    fg = utils.getColor('Normal'),
+    insert = utils.getColor('Constant'),
+    visual = utils.getColor('Keyword'),
+    replace = utils.getColor('Error'),
   }
 
-  local custom = {
+  local theme = {
     normal = {
-      a = { fg = colors.white, bg = colors.black },
-      b = { fg = colors.white, bg = colors.black },
-      c = { fg = colors.white, bg = colors.black },
+      a = { fg = colors.fg, bg = colors.bg },
+      b = { fg = colors.fg, bg = colors.bg },
+      c = { fg = colors.fg, bg = colors.bg },
     },
 
-    insert = { a = { fg = colors.blue, bg = colors.black } },
-    visual = { a = { fg = colors.green, bg = colors.black } },
-    replace = { a = { fg = colors.red, bg = colors.black } },
+    insert = { a = { fg = colors.insert, bg = colors.bg } },
+    visual = { a = { fg = colors.visual, bg = colors.bg } },
+    replace = { a = { fg = colors.replace, bg = colors.bg } },
 
     inactive = {
-      a = { fg = colors.black, bg = colors.black },
-      b = { fg = colors.black, bg = colors.black },
-      c = { fg = colors.black, bg = colors.black },
+      a = { fg = colors.fg, bg = colors.bg },
+      b = { fg = colors.fg, bg = colors.bg },
+      c = { fg = colors.fg, bg = colors.bg },
     },
   }
 
-  filename = {
+  local fileName = {
     'filename',
     path = 1,
     separator = { left = '', right = '' },
@@ -39,11 +41,9 @@ local function config()
     },
   }
 
-  require('lualine').setup({})
-  local lualine = require('lualine')
   lualine.setup({
     options = {
-      theme = custom,
+      theme = theme,
       component_separators = '',
       disabled_filetypes = {
         statusline = {
@@ -68,8 +68,8 @@ local function config()
       },
       lualine_b = {},
       lualine_c = {
-        '%=', --[[ add your center components here in place of this comment ]]
-        filename,
+        '%=',
+        fileName,
         'branch',
         'diff',
       },
@@ -83,7 +83,7 @@ local function config()
               return ''
             end
           end,
-          color = { fg = colors.blue },
+          color = { fg = colors.insert },
         },
       },
       lualine_y = { 'location' },

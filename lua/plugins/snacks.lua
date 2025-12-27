@@ -1,8 +1,7 @@
-return {
-  'folke/snacks.nvim',
-  priority = 1000,
-  lazy = false,
-  opts = {
+local function config()
+  local utils = require('utils')
+
+  require('snacks').setup({
     lazygit = {
       enabled = true,
       configure = true,
@@ -12,8 +11,8 @@ return {
         },
         gui = {
           theme = {
-            activeBorderColor = { '#AA9BF5', 'bold' },
-            inactiveBorderColor = { '#505050' },
+            activeBorderColor = { utils.getColor('Constant'), 'bold' },
+            inactiveBorderColor = { utils.getColor('FloatBorder') },
           },
         },
       },
@@ -30,9 +29,11 @@ return {
         enabled = false,
       },
     },
-  },
-  config = function(_, opts)
-    require('snacks').setup(opts)
-    vim.api.nvim_set_hl(0, 'SnacksLazygitBorder', { fg = vim.g.border_color, bg = 'NONE' })
-  end,
+  })
+end
+
+return {
+  'folke/snacks.nvim',
+  lazy = false,
+  config = config,
 }

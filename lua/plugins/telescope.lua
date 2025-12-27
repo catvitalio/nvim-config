@@ -1,26 +1,28 @@
 local function config()
   local telescope = require('telescope')
-  local actions = require('telescope.actions')
+  local borderColor = require('utils').getColor('FloatBorder')
+
+  vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = borderColor, bg = 'NONE' })
+  vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = borderColor, bg = 'NONE' })
+  vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = borderColor, bg = 'NONE' })
+  vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = borderColor, bg = 'NONE' })
 
   telescope.setup({
     extensions = {
       ['ui-select'] = {
-        {
+        require('telescope.themes').get_dropdown({
           previewer = false,
-          theme = 'dropdown',
-          layout_strategy = 'center',
+          borderchars = {
+            prompt = { '─', '│', ' ', '│', '╭', '╮', '│', '│' },
+            results = { '─', '│', '─', '│', '├', '┤', '╯', '╰' },
+          },
           layout_config = {
             width = 0.5,
             height = 0.4,
             prompt_position = 'top',
           },
-          border = true,
-          borderchars = {
-            prompt = { '─', '│', ' ', '│', '╭', '╮', '│', '│' },
-            results = { '─', '│', '─', '│', '├', '┤', '╯', '╰' },
-          },
           sorting_strategy = 'ascending',
-        },
+        }),
       },
     },
     defaults = {
@@ -38,16 +40,19 @@ local function config()
         '--line-number',
         '--column',
         '--smart-case',
-        '--fixed-strings', -- Это отключает regex и включает буквальный поиск
+        '--fixed-strings',
       },
     },
   })
+
+  telescope.load_extension('ui-select')
 end
 
 return {
   {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
+    lazy = true,
     keys = {
       { 'ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
       { 'fw', '<cmd>Telescope live_grep<cr>', desc = 'Live grep' },
@@ -62,9 +67,7 @@ return {
   },
   {
     'nvim-telescope/telescope-ui-select.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-telescope/telescope.nvim' },
-    config = function()
-      require('telescope').load_extension('ui-select')
-    end,
   },
 }
