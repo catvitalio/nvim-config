@@ -67,7 +67,7 @@ return {
             indent_size = 2,
             indent_marker = '│',
             last_indent_marker = '╰',
-            highlight = 'NeoTreeIndentMarker',
+            highlight = 'FloatBorder',
           },
           git_status = {
             symbols = {
