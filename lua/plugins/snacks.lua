@@ -9,6 +9,12 @@ local function config()
         os = {
           edit = 'nvr --remote-send "<Esc><cmd>q<cr><cmd>e {{filename}}<cr>"',
         },
+        git = {
+          paging = {
+            colorArg = 'always',
+            pager = 'delta --dark --paging=never',
+          },
+        },
         gui = {
           theme = {
             activeBorderColor = { utils.getColor('Constant'), 'bold' },
