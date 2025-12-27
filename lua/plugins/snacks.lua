@@ -16,6 +16,7 @@ local function config()
           },
         },
         gui = {
+          showBottomLine = false,
           theme = {
             activeBorderColor = { utils.getColor('Constant'), 'bold' },
             inactiveBorderColor = { utils.getColor('FloatBorder') },
