@@ -32,13 +32,29 @@ local function config()
     'filename',
     path = 1,
     separator = { left = '', right = '' },
-    left_padding = 2,
     symbols = {
       modified = '',
       readonly = '',
       unnamed = 'untitled',
       newfile = 'untitled',
     },
+    fmt = function(str)
+      local devicons = require('nvim-web-devicons')
+      local parts = vim.split(str, '/', { plain = true })
+      local formatted_parts = {}
+
+      for i, part in ipairs(parts) do
+        if i == #parts then
+          local icon, _ =
+            devicons.get_icon(part, vim.fn.fnamemodify(part, ':e'), { default = true })
+          table.insert(formatted_parts, (icon or '') .. ' ' .. part)
+        else
+          table.insert(formatted_parts, '󰉋 ' .. part)
+        end
+      end
+
+      return table.concat(formatted_parts, ' > ')
+    end,
   }
 
   lualine.setup({
@@ -70,8 +86,6 @@ local function config()
       lualine_c = {
         '%=',
         fileName,
-        'branch',
-        'diff',
       },
       lualine_x = {
         {
