@@ -1,34 +1,7 @@
 local function config()
-  local utils = require('utils')
   local lualine = require('lualine')
 
-  local colors = {
-    bg = utils.getColor('Normal', 'bg'),
-    fg = utils.getColor('Normal'),
-    insert = utils.getColor('Constant'),
-    visual = utils.getColor('Keyword'),
-    replace = utils.getColor('Error'),
-  }
-
-  local theme = {
-    normal = {
-      a = { fg = colors.fg, bg = colors.bg },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-    },
-
-    insert = { a = { fg = colors.insert, bg = colors.bg } },
-    visual = { a = { fg = colors.visual, bg = colors.bg } },
-    replace = { a = { fg = colors.replace, bg = colors.bg } },
-
-    inactive = {
-      a = { fg = colors.fg, bg = colors.bg },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-    },
-  }
-
-  local fileName = {
+  local filename = {
     'filename',
     path = 1,
     separator = { left = '', right = '' },
@@ -59,8 +32,8 @@ local function config()
 
   lualine.setup({
     options = {
-      theme = theme,
       component_separators = '',
+      section_separators = '',
       disabled_filetypes = {
         statusline = {
           'dapui_scopes',
@@ -85,7 +58,7 @@ local function config()
       lualine_b = {},
       lualine_c = {
         '%=',
-        fileName,
+        filename,
       },
       lualine_x = {
         {
@@ -97,7 +70,6 @@ local function config()
               return ''
             end
           end,
-          color = { fg = colors.insert },
         },
       },
       lualine_y = { 'location' },
@@ -118,7 +90,7 @@ end
 
 return {
   'nvim-lualine/lualine.nvim',
-  event = 'VeryLazy',
+  lazy = false,
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = config,
 }

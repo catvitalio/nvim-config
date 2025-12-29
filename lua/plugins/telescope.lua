@@ -1,11 +1,5 @@
 local function config()
   local telescope = require('telescope')
-  local borderColor = require('utils').getColor('FloatBorder')
-
-  vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = borderColor, bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = borderColor, bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = borderColor, bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = borderColor, bg = 'NONE' })
 
   telescope.setup({
     extensions = {

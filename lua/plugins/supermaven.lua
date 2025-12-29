@@ -1,5 +1,5 @@
 local function config()
-  local utils = require('utils')
+  local utils = require('themes.utils')
 
   require('supermaven-nvim').setup({
     keymaps = {
@@ -26,7 +26,7 @@ local function config()
       'neo-tree',
     },
     color = {
-      suggestion_color = utils.getColor('LineNr'),
+      suggestion_color = utils.get_color('LineNr'),
       cterm = 244,
     },
     log_level = 'off',
@@ -40,5 +40,6 @@ end
 
 return {
   'supermaven-inc/supermaven-nvim',
+  lazy = true,
   config = config,
 }

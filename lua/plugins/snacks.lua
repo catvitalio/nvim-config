@@ -1,5 +1,5 @@
 local function config()
-  local utils = require('utils')
+  local utils = require('themes.utils')
 
   require('snacks').setup({
     lazygit = {
@@ -18,8 +18,8 @@ local function config()
         gui = {
           showBottomLine = false,
           theme = {
-            activeBorderColor = { utils.getColor('Constant'), 'bold' },
-            inactiveBorderColor = { utils.getColor('FloatBorder') },
+            activeBorderColor = { utils.get_color('LazygitActiveBorder'), 'bold' },
+            inactiveBorderColor = { utils.get_color('LazygitInactiveBorder') },
           },
         },
       },
@@ -41,6 +41,6 @@ end
 
 return {
   'folke/snacks.nvim',
-  lazy = false,
+  event = 'VeryLazy',
   config = config,
 }
