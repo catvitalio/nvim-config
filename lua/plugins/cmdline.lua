@@ -7,13 +7,6 @@ local function config()
       debounceMs = 10,
     },
 
-    hl = {
-      default = 'Pmenu',
-      selection = 'PmenuSel',
-      directory = 'Directory',
-      substr = 'LineNr',
-    },
-
     column = {
       maxNumber = 6,
       minWidth = 20,

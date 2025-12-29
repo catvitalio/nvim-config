@@ -3,6 +3,8 @@ return function()
   local colors = {
     -- Float windows
     FloatBorder = { fg = '#5a5a5a', bg = '#1f1f1f' },
+    NormalFloat = { fg = '#d4d4d4', bg = '#1f1f1f' },
+    Pmenu = { fg = '#d4d4d4', bg = '#1f1f1f' },
 
     -- Barbar
     BufferCurrent = { fg = '#d4d4d4', bg = '#1f1f1f' },

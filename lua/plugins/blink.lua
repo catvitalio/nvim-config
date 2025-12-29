@@ -3,7 +3,6 @@ return {
     'saghen/blink.compat',
     version = '*',
     lazy = true,
-    opts = { {} },
   },
   {
     'saghen/blink.cmp',
@@ -14,6 +13,7 @@ return {
       completion = {
         documentation = { auto_show = false },
         menu = {
+          border = 'rounded',
           draw = {
             columns = { { 'kind_icon' }, { 'label' }, { 'label_description' } },
           },
