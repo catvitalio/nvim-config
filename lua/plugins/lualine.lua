@@ -21,6 +21,8 @@ local function config()
           local icon, _ =
             devicons.get_icon(part, vim.fn.fnamemodify(part, ':e'), { default = true })
           table.insert(formatted_parts, (icon or '') .. ' ' .. part)
+        elseif part == '' then
+          table.insert(formatted_parts, '/')
         else
           table.insert(formatted_parts, '󰉋 ' .. part)
         end
