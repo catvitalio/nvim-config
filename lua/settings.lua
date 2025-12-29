@@ -1,15 +1,20 @@
 vim.o.termguicolors = true
-vim.opt.showmode = false
-vim.opt.updatetime = 100
+vim.opt.termsync = false
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
 vim.opt.virtualedit = 'block'
 vim.opt.undofile = true
 vim.o.mousemoveevent = true
+
+-- Separators
 vim.opt.fillchars = { eob = ' ', vert = ' ', vertleft = ' ', vertright = ' ' }
-vim.opt.termsync = false
+
+-- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Turn off standard status line
+vim.opt.showmode = false
 
 -- Hide cmd line
 vim.opt.cmdheight = 0

@@ -40,6 +40,5 @@ end
 
 return {
   'supermaven-inc/supermaven-nvim',
-  lazy = true,
   config = config,
 }
