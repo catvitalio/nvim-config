@@ -32,7 +32,7 @@ return function()
     -- Lualine
     lualine_a_normal = { fg = '#569cd6', bg = '#1f1f1f' },
     lualine_a_insert = { fg = '#ce9178', bg = '#1f1f1f' },
-    lualine_a_visual = { fg = '#c586c0', bg = '#1f1f1f' },
+    lualine_a_visual = { fg = '#6a9955', bg = '#1f1f1f' },
     lualine_a_replace = { fg = '#f44747', bg = '#1f1f1f' },
     lualine_b_normal = { fg = '#5a5a5a', bg = '#1f1f1f' },
     lualine_b_insert = { fg = '#5a5a5a', bg = '#1f1f1f' },
