@@ -7,7 +7,15 @@ vim.opt.undofile = true
 vim.o.mousemoveevent = true
 
 -- Separators
-vim.opt.fillchars = { eob = ' ', vert = ' ', vertleft = ' ', vertright = ' ' }
+vim.opt.fillchars = {
+  eob = ' ',
+  vert = ' ',
+  horiz = ' ',
+  horizup = ' ',
+  horizdown = ' ',
+  vertleft = ' ',
+  vertright = ' ',
+}
 
 -- Search
 vim.opt.ignorecase = true
