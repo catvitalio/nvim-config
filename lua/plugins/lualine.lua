@@ -63,7 +63,9 @@ local function config()
         '%=',
         filename,
       },
-      lualine_x = {
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {
         {
           function()
             local api = require('supermaven-nvim.api')
@@ -75,8 +77,6 @@ local function config()
           end,
         },
       },
-      lualine_y = { 'location' },
-      lualine_z = {},
     },
     inactive_sections = {
       lualine_a = {},
