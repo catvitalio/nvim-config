@@ -9,12 +9,9 @@ vim.o.mousemoveevent = true
 -- Separators
 vim.opt.fillchars = {
   eob = ' ',
-  vert = ' ',
-  horiz = ' ',
-  horizup = ' ',
-  horizdown = ' ',
-  vertleft = ' ',
-  vertright = ' ',
+  vert = '│',
+  horiz = '─',
+  diff = '╱',
 }
 
 -- Search
