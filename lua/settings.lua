@@ -76,6 +76,7 @@ vim.diagnostic.config({
 })
 
 -- Hover diagnostics
+vim.opt.updatetime = 300
 vim.api.nvim_create_autocmd({ 'CursorHold' }, {
   pattern = '*',
   callback = function()
