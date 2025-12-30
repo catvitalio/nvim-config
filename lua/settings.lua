@@ -34,6 +34,8 @@ vim.opt.mousefocus = true
 -- Line Numbers
 vim.opt.number = true
 vim.opt.relativenumber = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = 'number'
 
 -- Splits
 vim.opt.splitbelow = true
