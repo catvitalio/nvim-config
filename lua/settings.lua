@@ -1,10 +1,11 @@
 vim.o.termguicolors = true
+vim.o.mousemoveevent = true
 vim.opt.termsync = false
 vim.opt.scrolloff = 8
+vim.opt.updatetime = 300
 vim.opt.wrap = false
 vim.opt.virtualedit = 'block'
 vim.opt.undofile = true
-vim.o.mousemoveevent = true
 
 -- Separators
 vim.opt.fillchars = {
@@ -76,15 +77,9 @@ vim.diagnostic.config({
 })
 
 -- Hover diagnostics
-vim.opt.updatetime = 300
 vim.api.nvim_create_autocmd({ 'CursorHold' }, {
   pattern = '*',
   callback = function()
-    for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-      if vim.api.nvim_win_get_config(winid).zindex then
-        return
-      end
-    end
     vim.diagnostic.open_float({
       scope = 'cursor',
       focusable = false,
