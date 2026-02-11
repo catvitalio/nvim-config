@@ -39,10 +39,6 @@ vim.keymap.set('n', '<A-s>', ':Format<CR>:w<CR>', opts)
 vim.keymap.set('n', '<A-d>', require('dapui').toggle, opts)
 vim.keymap.set('n', '<A-b>', '<Cmd>DapToggleBreakpoint<CR>', opts)
 
--- Esc
-vim.keymap.set('i', 'jj', '<Esc>', opts)
-vim.keymap.set('i', 'kk', '<Esc>', opts)
-
 -- Supermaven toggle
 vim.keymap.set('n', '<leader>sm', function()
   local api = require('supermaven-nvim.api')
