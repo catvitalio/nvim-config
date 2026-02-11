@@ -15,6 +15,7 @@ local lazy = require('lazy')
 
 lazy.setup({
   require('themes.vscode')(),
+  require('plugins.session'),
   require('plugins.neotree'),
   require('plugins.cmdline'),
   require('plugins.barbar'),
