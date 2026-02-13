@@ -40,6 +40,7 @@ local function config()
   })
 
   telescope.load_extension('ui-select')
+  telescope.load_extension('frecency')
 end
 
 return {
@@ -48,7 +49,7 @@ return {
     cmd = 'Telescope',
     lazy = true,
     keys = {
-      { '<A-p>', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+      { '<A-p>', '<cmd>Telescope frecency workspace=CWD<cr>', desc = 'Find files (frecency)' },
       { '<A-f>', '<cmd>Telescope live_grep<cr>', desc = 'Live grep' },
       { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'LSP references' },
       { 'gd', '<cmd>Telescope lsp_definitions<cr>', desc = 'LSP definitions' },
@@ -58,6 +59,11 @@ return {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = config,
+  },
+  {
+    'nvim-telescope/telescope-frecency.nvim',
+    lazy = true,
+    dependencies = { 'nvim-telescope/telescope.nvim' },
   },
   {
     'nvim-telescope/telescope-ui-select.nvim',
