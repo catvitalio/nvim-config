@@ -35,3 +35,8 @@ vim.keymap.set('n', '<A-s>', ':Format<CR>:w<CR>', opts)
 -- Debugger
 vim.keymap.set('n', '<A-d>', require('dapui').toggle, opts)
 vim.keymap.set('n', '<A-b>', '<Cmd>DapToggleBreakpoint<CR>', opts)
+vim.keymap.set('n', '<F5>', '<Cmd>DapContinue<CR>', opts)
+vim.keymap.set('n', '<S-F5>', '<Cmd>DapTerminate<CR>', opts)
+vim.keymap.set('n', '<F10>', '<Cmd>DapStepOver<CR>', opts)
+vim.keymap.set('n', '<F11>', '<Cmd>DapStepInto<CR>', opts)
+vim.keymap.set('n', '<S-F11>', '<Cmd>DapStepOut<CR>', opts)

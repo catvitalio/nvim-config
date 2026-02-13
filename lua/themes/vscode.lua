@@ -68,6 +68,8 @@ return function()
     -- Dap
     DapBreakpoint = { fg = '#f44747', bg = '#1f1f1f' },
     DapStopped = { fg = '#C586C0', bg = '#1f1f1f' },
+    DapStoppedLine = { bg = '#222222' },
+    NvimDapVirtualText = { fg = '#5a5a5a', italic = true },
   }
 
   return utils.setup_theme('Mofiqul/vscode.nvim', {}, colors)
