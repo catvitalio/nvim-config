@@ -38,15 +38,3 @@ vim.keymap.set('n', '<A-s>', ':Format<CR>:w<CR>', opts)
 -- Debugger
 vim.keymap.set('n', '<A-d>', require('dapui').toggle, opts)
 vim.keymap.set('n', '<A-b>', '<Cmd>DapToggleBreakpoint<CR>', opts)
-
--- Supermaven toggle
-vim.keymap.set('n', '<leader>sm', function()
-  local api = require('supermaven-nvim.api')
-  if api.is_running() then
-    api.stop()
-    print('Supermaven stopped')
-  else
-    api.start()
-    print('Supermaven started')
-  end
-end, opts)
