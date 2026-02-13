@@ -30,7 +30,7 @@ vim.keymap.set('n', '<A-S-w>', '<Cmd>bd!<CR>', opts)
 vim.keymap.set('n', '<A-S-t>', '<Cmd>BufReopen<CR>', opts)
 
 -- LSP
-vim.keymap.set('n', 'ca', vim.lsp.buf.code_action, opts)
+vim.keymap.set('n', '<A-.>', vim.lsp.buf.code_action, opts)
 
 -- Format and save
 vim.keymap.set('n', '<A-s>', ':Format<CR>:w<CR>', opts)
