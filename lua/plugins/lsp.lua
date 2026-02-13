@@ -1,19 +1,6 @@
 local function config()
   -- python
-  local utils = require('utils')
-
-  vim.lsp.config('pyrefly', {
-    settings = {
-      python = {
-        pyrefly = {
-          displayTypeErrors = 'force-on',
-          logLevel = 'warning',
-          extraPaths = utils.get_json_env('PYREFLY_EXTRA_PATHS', { '.' }),
-        },
-      },
-    },
-  })
-  vim.lsp.enable('pyrefly')
+  vim.lsp.enable('ty')
   -- lua
   vim.lsp.enable('lua_ls')
   -- go
