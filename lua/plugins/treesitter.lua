@@ -5,6 +5,8 @@ local function config()
       'lua',
       'rust',
       'c',
+      'go',
+      'gomod',
       'yaml',
       'dockerfile',
       'toml',
