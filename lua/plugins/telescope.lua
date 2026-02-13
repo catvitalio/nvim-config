@@ -48,8 +48,8 @@ return {
     cmd = 'Telescope',
     lazy = true,
     keys = {
-      { 'ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
-      { 'fw', '<cmd>Telescope live_grep<cr>', desc = 'Live grep' },
+      { '<A-p>', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+      { '<A-f>', '<cmd>Telescope live_grep<cr>', desc = 'Live grep' },
       { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'LSP references' },
       { 'gd', '<cmd>Telescope lsp_definitions<cr>', desc = 'LSP definitions' },
     },
