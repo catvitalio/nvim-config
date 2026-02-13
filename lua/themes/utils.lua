@@ -32,14 +32,6 @@ local function setup_theme(repo, opts, colors)
       vim.cmd.colorscheme(theme_name)
 
       if colors then
-        vim.api.nvim_create_autocmd('ColorScheme', {
-          pattern = theme_name,
-          callback = function()
-            override_colors(colors)
-          end,
-          once = true,
-        })
-
         vim.api.nvim_create_autocmd('User', {
           pattern = 'LazyDone',
           callback = function()
