@@ -1,6 +1,3 @@
--- Leader
-vim.g.mapleader = ' '
-
 -- Hotkey options
 local opts = {
   noremap = true,
