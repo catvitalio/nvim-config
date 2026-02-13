@@ -1,75 +1,88 @@
 return function()
   local utils = require('themes.utils')
+
+  local black = '#1f1f1f'
+  local white = '#d4d4d4'
+  local grey = '#5a5a5a'
+  local dark_grey = '#222222'
+  local blue = '#569cd6'
+  local red = '#f44747'
+  local orange = '#ce9178'
+  local green = '#6a9955'
+  local purple = '#c678dd'
+  local yellow = '#dcdcaa'
+  local none = 'NONE'
+
   local colors = {
     -- Float windows
-    FloatBorder = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    NormalFloat = { fg = '#d4d4d4', bg = '#1f1f1f' },
-    Pmenu = { fg = '#d4d4d4', bg = '#1f1f1f' },
+    FloatBorder = { fg = grey, bg = black },
+    NormalFloat = { fg = white, bg = black },
+    Pmenu = { fg = white, bg = black },
 
     -- Barbar
-    BufferCurrent = { fg = '#d4d4d4', bg = '#1f1f1f' },
-    BufferCurrentIndex = { fg = '#569cd6', bg = '#1f1f1f' },
-    BufferCurrentMod = { fg = '#dcdcaa', bg = '#1f1f1f' },
-    BufferCurrentSign = { fg = '#569cd6', bg = '#1f1f1f' },
-    BufferCurrentTarget = { fg = '#f44747', bg = '#1f1f1f' },
-    BufferVisible = { fg = '#d4d4d4', bg = '#1f1f1f' },
-    BufferVisibleIndex = { fg = '#d4d4d4', bg = '#1f1f1f' },
-    BufferVisibleMod = { fg = '#ce9178', bg = '#1f1f1f' },
-    BufferVisibleSign = { fg = '#d4d4d4', bg = '#1f1f1f' },
-    BufferVisibleTarget = { fg = '#f44747', bg = '#1f1f1f' },
-    BufferInactive = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    BufferInactiveIndex = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    BufferInactiveMod = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    BufferInactiveSign = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    BufferInactiveTarget = { fg = '#f44747', bg = '#1f1f1f' },
-    BufferTabpages = { fg = '#d4d4d4', bg = '#1f1f1f' },
-    BufferTabpageFill = { fg = '#d4d4d4', bg = '#1f1f1f' },
+    BufferCurrent = { fg = white, bg = black },
+    BufferCurrentIndex = { fg = blue, bg = black },
+    BufferCurrentMod = { fg = yellow, bg = black },
+    BufferCurrentSign = { fg = blue, bg = black },
+    BufferCurrentTarget = { fg = red, bg = black },
+    BufferVisible = { fg = white, bg = black },
+    BufferVisibleIndex = { fg = white, bg = black },
+    BufferVisibleMod = { fg = orange, bg = black },
+    BufferVisibleSign = { fg = white, bg = black },
+    BufferVisibleTarget = { fg = red, bg = black },
+    BufferInactive = { fg = grey, bg = black },
+    BufferInactiveIndex = { fg = grey, bg = black },
+    BufferInactiveMod = { fg = grey, bg = black },
+    BufferInactiveSign = { fg = grey, bg = black },
+    BufferInactiveTarget = { fg = red, bg = black },
+    BufferTabpages = { fg = white, bg = black },
+    BufferTabpageFill = { fg = white, bg = black },
 
     -- Neo-tree
-    NeoTreeFloatBorder = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    NeoTreeFloatNormal = { bg = '#1f1f1f' },
+    NeoTreeFloatBorder = { fg = grey, bg = black },
+    NeoTreeFloatNormal = { bg = black },
 
     -- Lualine
-    lualine_a_normal = { fg = '#569cd6', bg = '#1f1f1f' },
-    lualine_a_insert = { fg = '#ce9178', bg = '#1f1f1f' },
-    lualine_a_visual = { fg = '#6a9955', bg = '#1f1f1f' },
-    lualine_a_replace = { fg = '#f44747', bg = '#1f1f1f' },
-    lualine_b_normal = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_b_insert = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_b_visual = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_b_replace = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_c_normal = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_c_insert = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_c_visual = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_c_replace = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_a_inactive = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_b_inactive = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_c_inactive = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_a_terminal = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_b_terminal = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_c_terminal = { fg = '#5a5a5a', bg = '#1f1f1f' },
-    lualine_a_command = { fg = '#1f1f1f', bg = '#1f1f1f' },
-    lualine_b_command = { fg = '#1f1f1f', bg = '#1f1f1f' },
-    lualine_c_command = { fg = '#1f1f1f', bg = '#1f1f1f' },
+    lualine_a_normal = { fg = blue, bg = black },
+    lualine_a_insert = { fg = orange, bg = black },
+    lualine_a_visual = { fg = green, bg = black },
+    lualine_a_replace = { fg = red, bg = black },
+    lualine_b_normal = { fg = grey, bg = black },
+    lualine_b_insert = { fg = grey, bg = black },
+    lualine_b_visual = { fg = grey, bg = black },
+    lualine_b_replace = { fg = grey, bg = black },
+    lualine_c_normal = { fg = grey, bg = black },
+    lualine_c_insert = { fg = grey, bg = black },
+    lualine_c_visual = { fg = grey, bg = black },
+    lualine_c_replace = { fg = grey, bg = black },
+    lualine_a_inactive = { fg = grey, bg = black },
+    lualine_b_inactive = { fg = grey, bg = black },
+    lualine_c_inactive = { fg = grey, bg = black },
+    lualine_a_terminal = { fg = grey, bg = black },
+    lualine_b_terminal = { fg = grey, bg = black },
+    lualine_c_terminal = { fg = grey, bg = black },
+    lualine_a_command = { fg = black, bg = black },
+    lualine_b_command = { fg = black, bg = black },
+    lualine_c_command = { fg = black, bg = black },
 
     -- Treesitter
-    TreesitterContext = { fg = '#d4d4d4', bg = '#1f1f1f' },
+    TreesitterContext = { fg = white, bg = black },
 
     -- Telescope
-    TelescopeBorder = { fg = '#5a5a5a', bg = 'NONE' },
-    TelescopePromptBorder = { fg = '#5a5a5a', bg = 'NONE' },
-    TelescopeResultsBorder = { fg = '#5a5a5a', bg = 'NONE' },
-    TelescopePreviewBorder = { fg = '#5a5a5a', bg = 'NONE' },
+    TelescopeBorder = { fg = grey, bg = none },
+    TelescopePromptBorder = { fg = grey, bg = none },
+    TelescopeResultsBorder = { fg = grey, bg = none },
+    TelescopePreviewBorder = { fg = grey, bg = none },
 
     -- Lazygit
-    LazygitActiveBorder = { fg = '#569cd6', bold = true },
-    LazygitInactiveBorder = { fg = '#5a5a5a' },
+    LazygitActiveBorder = { fg = blue, bold = true },
+    LazygitInactiveBorder = { fg = grey },
 
     -- Dap
-    DapBreakpoint = { fg = '#f44747', bg = '#1f1f1f' },
-    DapStopped = { fg = '#C586C0', bg = '#1f1f1f' },
-    DapStoppedLine = { bg = '#222222' },
-    NvimDapVirtualText = { fg = '#5a5a5a', italic = true },
+    DapBreakpoint = { fg = red, bg = black },
+    DapStopped = { fg = purple, bg = black },
+    DapStoppedLine = { bg = dark_grey },
+    NvimDapVirtualText = { fg = grey, italic = true },
   }
 
   return utils.setup_theme('Mofiqul/vscode.nvim', {}, colors)
