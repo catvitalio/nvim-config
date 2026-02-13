@@ -48,6 +48,9 @@ return function()
     lualine_a_terminal = { fg = '#5a5a5a', bg = '#1f1f1f' },
     lualine_b_terminal = { fg = '#5a5a5a', bg = '#1f1f1f' },
     lualine_c_terminal = { fg = '#5a5a5a', bg = '#1f1f1f' },
+    lualine_a_command = { fg = '#1f1f1f', bg = '#1f1f1f' },
+    lualine_b_command = { fg = '#1f1f1f', bg = '#1f1f1f' },
+    lualine_c_command = { fg = '#1f1f1f', bg = '#1f1f1f' },
 
     -- Treesitter
     TreesitterContext = { fg = '#d4d4d4', bg = '#1f1f1f' },
