@@ -17,10 +17,6 @@ local function config()
         },
         gui = {
           showBottomLine = false,
-          theme = {
-            activeBorderColor = { utils.get_color('LazygitActiveBorder'), 'bold' },
-            inactiveBorderColor = { utils.get_color('LazygitInactiveBorder') },
-          },
         },
       },
       win = {

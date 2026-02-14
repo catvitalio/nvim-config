@@ -74,10 +74,6 @@ return function()
     TelescopeResultsBorder = { fg = grey, bg = none },
     TelescopePreviewBorder = { fg = grey, bg = none },
 
-    -- Lazygit
-    LazygitActiveBorder = { fg = blue, bold = true },
-    LazygitInactiveBorder = { fg = grey },
-
     -- Dap
     DapBreakpoint = { fg = red, bg = black },
     DapStopped = { fg = purple, bg = black },
