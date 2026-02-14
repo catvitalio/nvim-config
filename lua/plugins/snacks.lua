@@ -36,11 +36,16 @@ local function config()
         enabled = false,
       },
     },
+    bigfile = {
+      enabled = true,
+      size = 1.5 * 1024 * 1024, -- 1.5mb
+    },
   })
 end
 
 return {
   'folke/snacks.nvim',
-  event = 'VeryLazy',
+  lazy = false,
+  priority = 1000,
   config = config,
 }

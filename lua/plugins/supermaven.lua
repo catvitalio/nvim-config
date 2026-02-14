@@ -12,6 +12,7 @@ local function config()
     },
     ignore_filetypes = {
       'sensitive',
+      'bigfile',
       'dapui_scopes',
       'dapui_breakpoints',
       'dapui_stacks',
