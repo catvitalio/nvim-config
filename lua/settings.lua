@@ -71,6 +71,35 @@ vim.opt.listchars = {
   trail = ' ',
 }
 
+-- Sensitive files
+vim.filetype.add({
+  pattern = {
+    -- Keys and certificates
+    ['.*/.ssh/.*'] = 'sensitive',
+    ['.*%.pem'] = 'sensitive',
+    ['.*%.key'] = 'sensitive',
+    ['.*%.p12'] = 'sensitive',
+    ['.*%.pfx'] = 'sensitive',
+    ['.*%.asc'] = 'sensitive',
+    ['.*%.gpg'] = 'sensitive',
+    ['.*%.pgp'] = 'sensitive',
+    ['.*%.keystore'] = 'sensitive',
+    ['.*%.jks'] = 'sensitive',
+    ['.*%.kdbx'] = 'sensitive',
+    -- Configs with secrets
+    ['.*%.env.*'] = 'sensitive',
+    ['.*%.secret'] = 'sensitive',
+    ['.*%.secrets'] = 'sensitive',
+    ['.*%.tfvars'] = 'sensitive',
+    ['.*/.aws/.*'] = 'sensitive',
+    ['.*/.gnupg/.*'] = 'sensitive',
+    ['.*/.kube/config'] = 'sensitive',
+    ['.*/.docker/config%.json'] = 'sensitive',
+    ['.*/.netrc'] = 'sensitive',
+    ['.*/.npmrc'] = 'sensitive',
+  },
+})
+
 -- Diagnostics
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })

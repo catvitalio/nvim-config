@@ -11,6 +11,7 @@ local function config()
       accept_word = '<C-j>',
     },
     ignore_filetypes = {
+      'sensitive',
       'dapui_scopes',
       'dapui_breakpoints',
       'dapui_stacks',
@@ -31,9 +32,6 @@ local function config()
     log_level = 'off',
     disable_inline_completion = false,
     disable_keymaps = false,
-    condition = function()
-      return false
-    end,
   })
 
   set_suggestion_hl()
