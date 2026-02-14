@@ -76,6 +76,10 @@ vim.filetype.add({
   pattern = {
     -- Keys and certificates
     ['.*/.ssh/.*'] = 'sensitive',
+    ['.*/id_rsa.*'] = 'sensitive',
+    ['.*/id_ed25519.*'] = 'sensitive',
+    ['.*/id_ecdsa.*'] = 'sensitive',
+    ['.*/id_dsa.*'] = 'sensitive',
     ['.*%.pem'] = 'sensitive',
     ['.*%.key'] = 'sensitive',
     ['.*%.p12'] = 'sensitive',
