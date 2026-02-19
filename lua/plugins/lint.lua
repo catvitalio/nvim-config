@@ -1,7 +1,7 @@
 local function config()
   require('lint').linters_by_ft = {
     python = { 'ruff' },
-    rust = { 'cargo' },
+    rust = { 'clippy' },
     go = { 'golangci-lint' },
     javascript = { 'eslint' },
     json = { 'eslint' },
