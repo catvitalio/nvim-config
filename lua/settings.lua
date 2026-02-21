@@ -34,6 +34,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
+vim.opt.statuscolumn = '%=%{v:relnum ? v:lnum : virtcol(".")} '
 
 -- Splits
 vim.opt.splitbelow = true
