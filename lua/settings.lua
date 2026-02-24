@@ -34,7 +34,20 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
-vim.opt.statuscolumn = '%=%{v:relnum ? v:lnum : virtcol(".")} '
+
+-- Status column (only when number is enabled in the target window)
+_G.statuscol = function()
+  local win = vim.g.statusline_winid or 0
+  local buf = vim.api.nvim_win_get_buf(win)
+  if vim.bo[buf].buftype ~= '' then
+    return ''
+  end
+  if not vim.wo[win].number then
+    return ''
+  end
+  return '%s%C%=%{v:relnum ? v:lnum : virtcol(".")} '
+end
+vim.opt.statuscolumn = '%!v:lua.statuscol()'
 
 -- Splits
 vim.opt.splitbelow = true
