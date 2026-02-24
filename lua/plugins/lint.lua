@@ -9,6 +9,12 @@ local function config()
     yaml = { 'prettierd', 'prettier', stop_after_first = true },
     nix = { 'nixfmt' },
   }
+
+  vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {
+    callback = function()
+      require('lint').try_lint()
+    end,
+  })
 end
 
 return {
