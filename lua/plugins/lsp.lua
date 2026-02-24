@@ -19,5 +19,15 @@ end
 
 return {
   'neovim/nvim-lspconfig',
+  event = { 'BufReadPre', 'BufNewFile', 'VimEnter' },
+  keys = {
+    {
+      '<A-.>',
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      desc = 'LSP Code Action',
+    },
+  },
   config = config,
 }

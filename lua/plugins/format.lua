@@ -28,5 +28,8 @@ end
 
 return {
   'stevearc/conform.nvim',
+  keys = {
+    { '<A-s>', ':Format<CR>:w<CR>', desc = 'Format and Save' },
+  },
   config = config,
 }

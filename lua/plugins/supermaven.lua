@@ -44,5 +44,6 @@ end
 
 return {
   'supermaven-inc/supermaven-nvim',
+  event = 'InsertEnter',
   config = config,
 }
