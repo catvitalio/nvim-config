@@ -38,10 +38,6 @@ vim.opt.cursorlineopt = 'number'
 -- Status column (only when number is enabled in the target window)
 _G.statuscol = function()
   local win = vim.g.statusline_winid or 0
-  local buf = vim.api.nvim_win_get_buf(win)
-  if vim.bo[buf].buftype ~= '' then
-    return ''
-  end
   if not vim.wo[win].number then
     return ''
   end
