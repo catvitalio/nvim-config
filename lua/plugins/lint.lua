@@ -6,7 +6,6 @@ local function config()
     javascript = { 'eslint' },
     json = { 'eslint' },
     yaml = { 'prettierd', 'prettier', stop_after_first = true },
-    nix = { 'nixfmt' },
   }
 
   vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {
