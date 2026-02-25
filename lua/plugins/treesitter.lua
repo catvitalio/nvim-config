@@ -13,6 +13,7 @@ local function config()
       'typescript',
       'javascript',
       'tsx',
+      'nix',
     },
     sync_install = false,
     auto_install = true,
