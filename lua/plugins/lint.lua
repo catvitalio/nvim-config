@@ -2,7 +2,7 @@ local function config()
   require('lint').linters_by_ft = {
     python = { 'ruff' },
     rust = { 'clippy' },
-    go = { 'golangci-lint' },
+    go = { 'golangcilint' },
     javascript = { 'eslint' },
     json = { 'eslint' },
     yaml = { 'prettierd', 'prettier', stop_after_first = true },
