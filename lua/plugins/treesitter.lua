@@ -1,31 +1,35 @@
+local languages = {
+  'python',
+  'lua',
+  'rust',
+  'c',
+  'go',
+  'gomod',
+  'yaml',
+  'dockerfile',
+  'toml',
+  'typescript',
+  'javascript',
+  'tsx',
+  'nix',
+}
+
 local function config()
-  require('nvim-treesitter.config').setup({
-    ensure_installed = {
-      'python',
-      'lua',
-      'rust',
-      'c',
-      'go',
-      'gomod',
-      'yaml',
-      'dockerfile',
-      'toml',
-      'typescript',
-      'javascript',
-      'tsx',
-      'nix',
-    },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
+  require('nvim-treesitter').setup()
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = languages,
+    callback = function(args)
+      pcall(vim.treesitter.start, args.buf)
+    end,
   })
 end
 
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    lazy = false,
     config = config,
   },
   {
