@@ -5,7 +5,6 @@ local function config()
     go = { 'golangcilint' },
     javascript = { 'eslint' },
     json = { 'eslint' },
-    yaml = { 'prettierd', 'prettier', stop_after_first = true },
   }
 
   vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {
