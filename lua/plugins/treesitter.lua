@@ -15,7 +15,7 @@ local languages = {
 }
 
 local function config()
-  require('nvim-treesitter').setup()
+  require('nvim-treesitter').install(languages)
 
   vim.api.nvim_create_autocmd('FileType', {
     pattern = languages,
