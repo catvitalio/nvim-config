@@ -2,7 +2,7 @@ local function config()
   require('conform').setup({
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'ruff_format', 'ruff_organize_imports' },
+      python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
       rust = { 'rustfmt', lsp_format = 'fallback' },
       go = { 'goimports', 'gofmt' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
