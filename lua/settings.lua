@@ -147,3 +147,6 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
     })
   end,
 })
+
+-- Turn off search highlighting
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
