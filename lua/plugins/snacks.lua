@@ -36,6 +36,10 @@ local function config()
       enabled = true,
       size = 1.5 * 1024 * 1024, -- 1.5mb
     },
+    words = {
+      enabled = true,
+      debounce = 1,
+    },
   })
 end
 
@@ -44,6 +48,22 @@ return {
   lazy = false,
   priority = 1000,
   keys = {
+    {
+      ']]',
+      function()
+        Snacks.words.jump(vim.v.count1)
+      end,
+      desc = 'Next Reference',
+      mode = { 'n', 't' },
+    },
+    {
+      '[[',
+      function()
+        Snacks.words.jump(-vim.v.count1)
+      end,
+      desc = 'Prev Reference',
+      mode = { 'n', 't' },
+    },
     {
       '<A-g>',
       function()
