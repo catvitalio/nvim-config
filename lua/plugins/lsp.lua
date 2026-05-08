@@ -14,7 +14,7 @@ local function config()
   -- spell
   vim.lsp.enable('codebook')
   -- nix
-  vim.lsp.enable('nixd')
+  vim.lsp.enable('nil_ls')
 end
 
 return {
