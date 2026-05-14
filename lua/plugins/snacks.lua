@@ -20,7 +20,9 @@ local function config()
         },
       },
       win = {
-        border = 'rounded',
+        border = 'none',
+        width = 0,
+        height = 0,
         style = {
           backdrop = false,
         },
