@@ -36,6 +36,7 @@ lazy.setup({
   require('plugins.scrollbar'),
   require('plugins.supermaven'),
   require('plugins.hlslens'),
+  require('plugins.im-select'),
 }, {
   performance = {
     cache = {
