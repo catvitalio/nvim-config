@@ -26,6 +26,7 @@ lazy.setup({
   require('plugins.colorizer'),
   require('plugins.gitsigns'),
   require('plugins.snacks'),
+  require('plugins.avante'),
   require('plugins.blink'),
   require('plugins.lsp'),
   require('plugins.format'),
