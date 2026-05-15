@@ -21,8 +21,6 @@ local function config()
       },
       win = {
         border = 'none',
-        width = 0,
-        height = 0,
         style = {
           backdrop = false,
         },
@@ -45,6 +43,18 @@ local function config()
   })
 end
 
+local function codex()
+  Snacks.terminal({ vim.o.shell, '-lc', 'codex --cd "$PWD" resume --last || codex --cd "$PWD"' }, {
+    cwd = vim.fn.getcwd(),
+    win = {
+      border = 'rounded',
+      style = {
+        backdrop = false,
+      },
+    },
+  })
+end
+
 return {
   'folke/snacks.nvim',
   lazy = false,
@@ -56,6 +66,13 @@ return {
         Snacks.lazygit()
       end,
       desc = '[g]it',
+      mode = { 'n', 't' },
+    },
+    {
+      '<A-a>',
+      codex,
+      desc = '[c]odex',
+      mode = { 'n', 't' },
     },
   },
   config = config,

@@ -120,6 +120,7 @@ Lazy.nvim will automatically install all plugins on first launch.
 - `Alt+p`: Telescope frecency (cwd)
 - `Alt+f`: Telescope live grep
 - `Alt+g`: Lazygit (Snacks)
+- `Alt+c`: Codex (Snacks terminal)
 - `Alt+.`: LSP code action
 - `Alt+s`: Format + save
 - `Alt+[`, `Alt+]`: Buffer prev/next
