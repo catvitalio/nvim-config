@@ -55,6 +55,19 @@ local function codex()
   })
 end
 
+local function terminal()
+  Snacks.terminal(nil, {
+    cwd = vim.fn.getcwd(),
+    win = {
+      position = 'float',
+      border = 'rounded',
+      style = {
+        backdrop = false,
+      },
+    },
+  })
+end
+
 return {
   'folke/snacks.nvim',
   lazy = false,
@@ -72,6 +85,12 @@ return {
       '<A-a>',
       codex,
       desc = '[c]odex',
+      mode = { 'n', 't' },
+    },
+    {
+      '<A-c>',
+      terminal,
+      desc = '[t]erminal',
       mode = { 'n', 't' },
     },
   },

@@ -6,6 +6,7 @@ vim.opt.updatetime = 300
 vim.opt.wrap = false
 vim.opt.virtualedit = 'block'
 vim.opt.undofile = true
+vim.opt.autoread = true
 
 -- Separators
 vim.opt.fillchars = {
@@ -129,6 +130,19 @@ vim.diagnostic.config({
   severity_sort = true,
   current_line_virt = true,
 })
+
+-- Reload unchanged buffers when files are modified outside Neovim.
+vim.api.nvim_create_autocmd(
+  { 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI', 'TermLeave' },
+  {
+    pattern = '*',
+    callback = function()
+      if vim.fn.getcmdwintype() == '' then
+        vim.cmd('silent! checktime')
+      end
+    end,
+  }
+)
 
 -- Hover diagnostics
 vim.api.nvim_create_autocmd({ 'CursorHold' }, {
