@@ -1,6 +1,4 @@
 local function config()
-  local utils = require('themes.utils')
-
   require('snacks').setup({
     lazygit = {
       enabled = true,
@@ -43,31 +41,6 @@ local function config()
   })
 end
 
-local function codex()
-  Snacks.terminal({ vim.o.shell, '-lc', 'codex --cd "$PWD" resume --last || codex --cd "$PWD"' }, {
-    cwd = vim.fn.getcwd(),
-    win = {
-      border = 'rounded',
-      style = {
-        backdrop = false,
-      },
-    },
-  })
-end
-
-local function terminal()
-  Snacks.terminal(nil, {
-    cwd = vim.fn.getcwd(),
-    win = {
-      position = 'float',
-      border = 'rounded',
-      style = {
-        backdrop = false,
-      },
-    },
-  })
-end
-
 return {
   'folke/snacks.nvim',
   lazy = false,
@@ -79,18 +52,6 @@ return {
         Snacks.lazygit()
       end,
       desc = '[g]it',
-      mode = { 'n', 't' },
-    },
-    {
-      '<A-a>',
-      codex,
-      desc = '[c]odex',
-      mode = { 'n', 't' },
-    },
-    {
-      '<A-c>',
-      terminal,
-      desc = '[t]erminal',
       mode = { 'n', 't' },
     },
   },
