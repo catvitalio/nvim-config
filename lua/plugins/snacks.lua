@@ -8,17 +8,21 @@ local function config()
           edit = 'nvr --remote-send "<Esc><cmd>q<cr><cmd>e {{filename}}<cr>"',
         },
         git = {
+          diffContextSize = 99999,
           paging = {
             colorArg = 'always',
-            pager = 'delta --dark --paging=never',
+            pager = 'delta --dark --side-by-side --hunk-header-style=omit --paging=never',
           },
         },
         gui = {
           showBottomLine = false,
+          showCommandLog = false,
         },
       },
       win = {
         border = 'none',
+        width = 0.999,
+        height = 0.96,
         style = {
           backdrop = false,
         },
