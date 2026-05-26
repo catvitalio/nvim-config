@@ -11,7 +11,7 @@ local function config()
           diffContextSize = 99999,
           paging = {
             colorArg = 'always',
-            pager = 'delta --dark --side-by-side --paging=never',
+            pager = 'delta --dark --paging=never',
           },
         },
         gui = {
