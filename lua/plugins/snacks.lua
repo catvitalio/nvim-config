@@ -11,7 +11,7 @@ local function config()
           diffContextSize = 99999,
           paging = {
             colorArg = 'always',
-            pager = 'delta --dark --side-by-side --hunk-header-style=omit --paging=never',
+            pager = 'delta --dark --side-by-side --paging=never',
           },
         },
         gui = {
@@ -21,7 +21,7 @@ local function config()
       },
       win = {
         border = 'none',
-        width = 0.999,
+        width = 0.96,
         height = 0.96,
         style = {
           backdrop = false,
