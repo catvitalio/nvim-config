@@ -12,6 +12,7 @@ local languages = {
   'javascript',
   'tsx',
   'nix',
+  'vim',
 }
 
 local function config()
