@@ -5,7 +5,7 @@ local function config()
       configure = true,
       config = {
         os = {
-          edit = 'nvr --remote-send "<Esc><cmd>q<cr><cmd>e {{filename}}<cr>"',
+          edit = 'nvim --server "$NVIM" --remote-send "<Esc><cmd>q<cr><cmd>e {{filename}}<cr>"',
         },
         git = {
           paging = {
