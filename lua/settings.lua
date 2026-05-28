@@ -64,7 +64,7 @@ vim.g.clipboard = {
   },
 }
 
--- Shorter messages
+-- Turn off logo
 vim.opt.shortmess:append('cI')
 
 -- Indent Settings
