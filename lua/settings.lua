@@ -65,7 +65,7 @@ vim.g.clipboard = {
 }
 
 -- Turn off logo
-vim.opt.shortmess:append('cI')
+vim.opt.shortmess:append('I')
 
 -- Indent Settings
 vim.opt.expandtab = true
