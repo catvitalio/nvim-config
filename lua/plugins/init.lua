@@ -32,6 +32,7 @@ lazy.setup({
   require('plugins.lint'),
   require('plugins.comment'),
   require('plugins.debug'),
+  require('plugins.conflict'),
   require('plugins.scrollbar'),
   require('plugins.supermaven'),
   require('plugins.hlslens'),
