@@ -42,7 +42,6 @@ local function config()
       debounce = 1,
     },
   })
-  vim.notify = Snacks.notifier
 end
 
 return {
