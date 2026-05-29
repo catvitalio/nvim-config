@@ -41,6 +41,7 @@ local function config()
       enabled = true,
       debounce = 1,
     },
+    picker = { enabled = true },
   })
 end
 

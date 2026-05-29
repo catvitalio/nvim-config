@@ -17,6 +17,8 @@ return function()
     -- Float windows
     FloatBorder = { fg = grey, bg = black },
     NormalFloat = { fg = white, bg = black },
+    SnacksPickerBorder = { fg = grey, bg = black },
+    SnacksPickerBoxBorder = { fg = grey, bg = black },
     Pmenu = { fg = white, bg = black },
 
     -- Barbar
