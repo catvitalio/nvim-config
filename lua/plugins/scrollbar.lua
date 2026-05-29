@@ -7,7 +7,6 @@ local function config()
       'dapui_watches',
       'dapui_console',
       'dap-repl',
-      'TelescopePrompt',
       'blink-cmp-menu',
       'dropbar_menu',
       'dropbar_menu_fzf',
@@ -17,6 +16,9 @@ local function config()
       'noice',
       'prompt',
       'neo-tree',
+      'snacks_picker_list',
+      'snacks_picker_input',
+      'snacks_layout_box',
     },
   })
   require('scrollbar.handlers.gitsigns').setup()
