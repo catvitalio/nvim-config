@@ -59,22 +59,30 @@ return {
   keys = {
     {
       '<A-p>',
-      function() Snacks.picker.smart() end,
+      function()
+        Snacks.picker.smart()
+      end,
       desc = 'Find files (smart)',
     },
     {
       '<A-f>',
-      function() Snacks.picker.grep() end,
+      function()
+        Snacks.picker.grep()
+      end,
       desc = 'Live grep',
     },
     {
       'gr',
-      function() Snacks.picker.lsp_references() end,
+      function()
+        Snacks.picker.lsp_references()
+      end,
       desc = 'LSP references',
     },
     {
       'gd',
-      function() Snacks.picker.lsp_definitions() end,
+      function()
+        Snacks.picker.lsp_definitions()
+      end,
       desc = 'LSP definitions',
     },
     {
