@@ -37,6 +37,10 @@ lazy.setup({
   require('plugins.hlslens'),
   require('plugins.im-select'),
 }, {
+  ui = {
+    backdrop = 100,
+    border = 'rounded',
+  },
   performance = {
     cache = {
       enabled = true,
