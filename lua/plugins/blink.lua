@@ -6,6 +6,7 @@ return {
   },
   {
     'saghen/blink.cmp',
+    event = 'InsertEnter',
     version = '1.*',
     opts = {
       keymap = { preset = 'enter', ['<C-Space>'] = { 'show', 'hide' } },
