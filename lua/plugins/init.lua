@@ -21,7 +21,6 @@ lazy.setup({
   require('plugins.barbar'),
   require('plugins.bufstack'),
   require('plugins.lualine'),
-  require('plugins.telescope'),
   require('plugins.treesitter'),
   require('plugins.colorizer'),
   require('plugins.gitsigns'),

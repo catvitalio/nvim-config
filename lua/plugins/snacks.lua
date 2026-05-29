@@ -41,7 +41,14 @@ local function config()
       enabled = true,
       debounce = 1,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layouts = {
+        default = {
+          layout = { backdrop = false },
+        },
+      },
+    },
   })
 end
 
@@ -50,6 +57,26 @@ return {
   lazy = false,
   priority = 1000,
   keys = {
+    {
+      '<A-p>',
+      function() Snacks.picker.smart() end,
+      desc = 'Find files (smart)',
+    },
+    {
+      '<A-f>',
+      function() Snacks.picker.grep() end,
+      desc = 'Live grep',
+    },
+    {
+      'gr',
+      function() Snacks.picker.lsp_references() end,
+      desc = 'LSP references',
+    },
+    {
+      'gd',
+      function() Snacks.picker.lsp_definitions() end,
+      desc = 'LSP definitions',
+    },
     {
       '<A-g>',
       function()

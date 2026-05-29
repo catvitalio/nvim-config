@@ -11,8 +11,6 @@ return function()
   local green = '#6a9955'
   local purple = '#c678dd'
   local yellow = '#dcdcaa'
-  local none = 'NONE'
-
   local colors = {
     -- Float windows
     FloatBorder = { fg = grey, bg = black },
@@ -69,12 +67,6 @@ return function()
 
     -- Treesitter
     TreesitterContext = { fg = white, bg = black },
-
-    -- Telescope
-    TelescopeBorder = { fg = grey, bg = none },
-    TelescopePromptBorder = { fg = grey, bg = none },
-    TelescopeResultsBorder = { fg = grey, bg = none },
-    TelescopePreviewBorder = { fg = grey, bg = none },
 
     -- Dap
     DapBreakpoint = { fg = red, bg = black },
