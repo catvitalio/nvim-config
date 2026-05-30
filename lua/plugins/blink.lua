@@ -12,11 +12,20 @@ return {
       keymap = { preset = 'enter', ['<C-Space>'] = { 'show', 'hide' } },
       appearance = { nerd_font_variant = 'mono' },
       completion = {
-        documentation = { auto_show = false },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 0,
+          window = { border = 'rounded' },
+        },
         menu = {
           border = 'rounded',
           draw = {
-            columns = { { 'kind_icon' }, { 'label' }, { 'label_description' } },
+            treesitter = { 'lsp' },
+            columns = {
+              { 'label', gap = 1 },
+              { 'kind_icon' },
+              { 'kind' },
+            },
           },
         },
       },
