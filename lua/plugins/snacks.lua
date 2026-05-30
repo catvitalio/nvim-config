@@ -97,7 +97,11 @@ local function term_keys()
         hide_others(existing and existing.buf)
         Snacks.terminal.toggle(nil, {
           count = i,
-          win = vim.tbl_extend('force', float_win, { title = ' Terminal ' .. i .. ' ', title_pos = 'center' }),
+          win = vim.tbl_extend(
+            'force',
+            float_win,
+            { title = ' Terminal ' .. i .. ' ', title_pos = 'center' }
+          ),
         })
       end,
       desc = 'Terminal ' .. i,
@@ -113,13 +117,18 @@ return {
   priority = 1000,
   keys = vim.list_extend(term_keys(), {
     {
-      '<A-S-a>',
+      '<A-,>',
       function()
-        local existing = Snacks.terminal.get('claude --continue', { cwd = vim.fn.getcwd(), create = false })
+        local existing =
+          Snacks.terminal.get('claude --continue', { cwd = vim.fn.getcwd(), create = false })
         hide_others(existing and existing.buf)
         Snacks.terminal.toggle('claude --continue', {
           cwd = vim.fn.getcwd(),
-          win = vim.tbl_extend('force', float_win, { title = ' Claude Code ', title_pos = 'center' }),
+          win = vim.tbl_extend(
+            'force',
+            float_win,
+            { title = ' Claude Code ', title_pos = 'center' }
+          ),
         })
       end,
       desc = 'Claude Code',
