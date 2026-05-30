@@ -16,7 +16,6 @@ return {
     init = function()
       vim.g.barbar_auto_setup = false
     end,
-    event = 'UIEnter',
     keys = {
       { '<A-[>', '<Cmd>BufferPrevious<CR>', desc = 'Buffer Previous' },
       { '<A-]>', '<Cmd>BufferNext<CR>', desc = 'Buffer Next' },
