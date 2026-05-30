@@ -80,9 +80,9 @@ vim.opt.smartindent = true
 -- Invisible symbols
 vim.opt.list = true
 vim.opt.listchars = {
-  space = ' ',
+  lead = '·',
+  trail = '·',
   tab = '→ ',
-  trail = ' ',
 }
 
 -- Sensitive files
