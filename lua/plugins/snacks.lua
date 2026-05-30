@@ -72,6 +72,20 @@ local function config()
   })
 end
 
+local function hide_others(skip_buf)
+  for _, t in ipairs(Snacks.terminal.list()) do
+    if t.buf ~= skip_buf and t:valid() then
+      t:hide()
+    end
+  end
+end
+
+local float_win = {
+  style = 'float',
+  border = 'rounded',
+  backdrop = false,
+}
+
 local function term_keys()
   local keys = {}
   for i = 1, 10 do
@@ -79,21 +93,11 @@ local function term_keys()
     table.insert(keys, {
       '<M-S-' .. n .. '>',
       function()
-        for _, t in ipairs(Snacks.terminal.list()) do
-          local meta = t.buf and vim.b[t.buf].snacks_terminal
-          if meta and meta.id ~= i and t:valid() then
-            t:hide()
-          end
-        end
+        local existing = Snacks.terminal.get(nil, { count = i, create = false })
+        hide_others(existing and existing.buf)
         Snacks.terminal.toggle(nil, {
           count = i,
-          win = {
-            style = 'float',
-            border = 'rounded',
-            backdrop = false,
-            title = ' Terminal ' .. i .. ' ',
-            title_pos = 'center',
-          },
+          win = vim.tbl_extend('force', float_win, { title = ' Terminal ' .. i .. ' ', title_pos = 'center' }),
         })
       end,
       desc = 'Terminal ' .. i,
@@ -111,15 +115,11 @@ return {
     {
       '<A-S-a>',
       function()
+        local existing = Snacks.terminal.get('claude --continue', { cwd = vim.fn.getcwd(), create = false })
+        hide_others(existing and existing.buf)
         Snacks.terminal.toggle('claude --continue', {
           cwd = vim.fn.getcwd(),
-          win = {
-            style = 'float',
-            border = 'rounded',
-            backdrop = false,
-            title = ' Claude Code ',
-            title_pos = 'center',
-          },
+          win = vim.tbl_extend('force', float_win, { title = ' Claude Code ', title_pos = 'center' }),
         })
       end,
       desc = 'Claude Code',
