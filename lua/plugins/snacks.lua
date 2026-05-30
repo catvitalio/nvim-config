@@ -117,7 +117,7 @@ return {
   priority = 1000,
   keys = vim.list_extend(term_keys(), {
     {
-      '<A-,>',
+      '<A- >',
       function()
         local existing =
           Snacks.terminal.get('claude --continue', { cwd = vim.fn.getcwd(), create = false })
