@@ -109,6 +109,23 @@ return {
   priority = 1000,
   keys = vim.list_extend(term_keys(), {
     {
+      '<A-S-a>',
+      function()
+        Snacks.terminal.toggle('claude --continue', {
+          cwd = vim.fn.getcwd(),
+          win = {
+            style = 'float',
+            border = 'rounded',
+            backdrop = false,
+            title = ' Claude Code ',
+            title_pos = 'center',
+          },
+        })
+      end,
+      desc = 'Claude Code',
+      mode = { 'n', 't' },
+    },
+    {
       '<A-p>',
       function()
         Snacks.picker.smart()
