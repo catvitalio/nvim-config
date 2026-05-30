@@ -49,14 +49,65 @@ local function config()
         },
       },
     },
+    terminal = {
+      enabled = true,
+      win = {
+        on_buf = function(self)
+          vim.api.nvim_create_autocmd('TermLeave', {
+            buffer = self.buf,
+            callback = function()
+              vim.schedule(function()
+                if vim.api.nvim_get_current_buf() == self.buf then
+                  vim.cmd('startinsert')
+                end
+              end)
+            end,
+          })
+        end,
+        keys = {
+          term_normal = false,
+        },
+      },
+    },
   })
+end
+
+local function term_keys()
+  local keys = {}
+  for i = 1, 10 do
+    local n = i % 10
+    table.insert(keys, {
+      '<M-S-' .. n .. '>',
+      function()
+        for _, t in ipairs(Snacks.terminal.list()) do
+          local meta = t.buf and vim.b[t.buf].snacks_terminal
+          if meta and meta.id ~= i and t:valid() then
+            t:hide()
+          end
+        end
+        Snacks.terminal.toggle(nil, {
+          count = i,
+          win = {
+            style = 'float',
+            border = 'rounded',
+            backdrop = false,
+            title = ' Terminal ' .. i .. ' ',
+            title_pos = 'center',
+          },
+        })
+      end,
+      desc = 'Terminal ' .. i,
+      mode = { 'n', 't' },
+    })
+  end
+  return keys
 end
 
 return {
   'folke/snacks.nvim',
   lazy = false,
   priority = 1000,
-  keys = {
+  keys = vim.list_extend(term_keys(), {
     {
       '<A-p>',
       function()
@@ -113,6 +164,6 @@ return {
       end,
       desc = '[B]lame commit in lazygit',
     },
-  },
+  }),
   config = config,
 }
