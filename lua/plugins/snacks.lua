@@ -119,10 +119,12 @@ return {
     {
       '<A- >',
       function()
-        local existing =
-          Snacks.terminal.get('claude --continue', { cwd = vim.fn.getcwd(), create = false })
+        local existing = Snacks.terminal.get(
+          'sh -c "claude --continue 2>/dev/null || claude"',
+          { cwd = vim.fn.getcwd(), create = false }
+        )
         hide_others(existing and existing.buf)
-        Snacks.terminal.toggle('claude --continue', {
+        Snacks.terminal.toggle('sh -c "claude --continue 2>/dev/null || claude"', {
           cwd = vim.fn.getcwd(),
           win = vim.tbl_extend(
             'force',
