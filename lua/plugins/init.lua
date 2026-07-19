@@ -33,7 +33,6 @@ lazy.setup({
   require('plugins.debug'),
   require('plugins.conflict'),
   require('plugins.scrollbar'),
-  require('plugins.supermaven'),
   require('plugins.hlslens'),
   require('plugins.im-select'),
 }, {
