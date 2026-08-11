@@ -27,6 +27,6 @@ end
 
 return {
   'petertriho/nvim-scrollbar',
-  event = { 'BufReadPost', 'BufNewFile' },
+  event = { 'BufReadPost', 'BufNewFile', 'TermOpen' },
   config = config,
 }
