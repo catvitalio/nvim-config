@@ -8,46 +8,59 @@ import sys
 from pathlib import Path
 
 
-def get_project_root() -> str:
+def get_project_root(cwd: str | None = None) -> str:
+    base = cwd or os.getcwd()
     try:
         result = subprocess.run(
             ["git", "rev-parse", "--show-toplevel"],
             capture_output=True,
             text=True,
             check=False,
-            cwd=os.getcwd(),
+            cwd=base,
         )
         if result.returncode == 0:
             return result.stdout.strip()
     except OSError:
         pass
-    return os.getcwd()
+    return base
 
 
-def get_store_path() -> Path:
-    return Path(get_project_root()) / ".cache" / "meow-review" / "annotations.json"
+def get_store_path(cwd: str | None = None) -> Path:
+    return Path(get_project_root(cwd)) / ".cache" / "meow-review" / "annotations.json"
 
 
-def load_store() -> list:
-    path = get_store_path()
+def load_store(cwd: str | None = None) -> list:
+    path = get_store_path(cwd)
     if not path.exists():
         return []
     with open(path) as f:
         data = json.load(f)
+    if isinstance(data, dict):
+        annotations = data.get("annotations", [])
+        return annotations if isinstance(annotations, list) else []
     return data if isinstance(data, list) else []
 
 
-def save_store(annotations: list) -> None:
-    path = get_store_path()
+def save_store(annotations: list, cwd: str | None = None) -> None:
+    path = get_store_path(cwd)
     path.parent.mkdir(parents=True, exist_ok=True)
+
+    payload: list | dict = annotations
+    if path.exists():
+        with open(path) as f:
+            existing = json.load(f)
+        if isinstance(existing, dict):
+            existing["annotations"] = annotations
+            payload = existing
+
     tmp = path.with_suffix(".tmp")
     with open(tmp, "w") as f:
-        json.dump(annotations, f, indent=2)
+        json.dump(payload, f, indent=2, ensure_ascii=False)
     tmp.replace(path)
 
 
-def handle_get_annotations() -> str:
-    active = [a for a in load_store() if not a.get("resolved", False)]
+def handle_get_annotations(cwd: str | None = None) -> str:
+    active = [a for a in load_store(cwd) if not a.get("resolved", False)]
     if not active:
         return "No active review annotations."
 
@@ -65,37 +78,45 @@ def handle_get_annotations() -> str:
     return "\n".join(lines)
 
 
-def handle_resolve_annotation(annotation_id: str) -> str:
-    annotations = load_store()
+def handle_resolve_annotation(annotation_id: str, cwd: str | None = None) -> str:
+    annotations = load_store(cwd)
     for a in annotations:
         if str(a.get("id")) == str(annotation_id):
             a["resolved"] = True
-            save_store(annotations)
+            save_store(annotations, cwd)
             return f"Annotation {annotation_id} resolved."
     return f"Annotation {annotation_id} not found."
 
 
-def handle_resolve_all() -> str:
-    annotations = load_store()
+def handle_resolve_all(cwd: str | None = None) -> str:
+    annotations = load_store(cwd)
     count = sum(1 for a in annotations if not a.get("resolved", False))
     for a in annotations:
         a["resolved"] = True
-    save_store(annotations)
+    save_store(annotations, cwd)
     return f"Resolved {count} annotation(s)."
 
+
+_CWD_PROP = {
+    "cwd": {
+        "type": "string",
+        "description": "Absolute path to the project root (pass your current working directory).",
+    }
+}
 
 TOOLS = [
     {
         "name": "get_annotations",
         "description": (
             "Get all active (unresolved) code review annotations from meow.review.nvim. "
-            "Call this at the start of a task to see what the user wants reviewed or fixed."
+            "Call this at the start of a task to see what the user wants reviewed or fixed. "
+            "Always pass `cwd` so the server reads the correct project."
         ),
-        "inputSchema": {"type": "object", "properties": {}, "required": []},
+        "inputSchema": {"type": "object", "properties": _CWD_PROP, "required": ["cwd"]},
     },
     {
         "name": "resolve_annotation",
-        "description": "Mark a single review annotation as resolved after addressing it.",
+        "description": "Mark a single review annotation as resolved after addressing it. Always pass `cwd`.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -103,14 +124,15 @@ TOOLS = [
                     "type": "string",
                     "description": "The annotation ID (shown in brackets in get_annotations output)",
                 },
+                **_CWD_PROP,
             },
-            "required": ["id"],
+            "required": ["id", "cwd"],
         },
     },
     {
         "name": "resolve_all_annotations",
-        "description": "Mark all review annotations as resolved. Use after addressing everything.",
-        "inputSchema": {"type": "object", "properties": {}, "required": []},
+        "description": "Mark all review annotations as resolved. Use after addressing everything. Always pass `cwd`.",
+        "inputSchema": {"type": "object", "properties": _CWD_PROP, "required": ["cwd"]},
     },
 ]
 
@@ -143,12 +165,13 @@ def handle_message(msg: dict) -> None:
         tool_name = params.get("name", "")
         args = params.get("arguments", {})
 
+        cwd = args.get("cwd") or None
         if tool_name == "get_annotations":
-            result = handle_get_annotations()
+            result = handle_get_annotations(cwd)
         elif tool_name == "resolve_annotation":
-            result = handle_resolve_annotation(args.get("id", ""))
+            result = handle_resolve_annotation(args.get("id", ""), cwd)
         elif tool_name == "resolve_all_annotations":
-            result = handle_resolve_all()
+            result = handle_resolve_all(cwd)
         else:
             result = f"Unknown tool: {tool_name}"
 
