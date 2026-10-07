@@ -10,6 +10,7 @@ local function config()
       toml = { 'taplo' },
       yaml = { 'prettierd', 'prettier', stop_after_first = true },
       nix = { 'nixfmt' },
+      xml = { 'xmllint' },
     },
   })
 

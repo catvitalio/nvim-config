@@ -20,8 +20,8 @@ local function config()
       },
       win = {
         border = 'none',
-        width = 0.96,
-        height = 0.96,
+        width = 0.9999,
+        height = 0.9999,
         style = {
           backdrop = false,
         },
@@ -35,7 +35,8 @@ local function config()
     },
     bigfile = {
       enabled = true,
-      size = 1.5 * 1024 * 1024, -- 1.5mb
+      size = 10 * 1024 * 1024,
+      line_length = 10000,
     },
     words = {
       enabled = true,
@@ -52,23 +53,22 @@ local function config()
     terminal = {
       enabled = true,
       win = {
-        on_buf = function(self)
-          vim.api.nvim_create_autocmd('TermLeave', {
-            buffer = self.buf,
-            callback = function()
-              vim.schedule(function()
-                if vim.api.nvim_get_current_buf() == self.buf then
-                  vim.cmd('startinsert')
-                end
-              end)
-            end,
-          })
-        end,
         keys = {
           term_normal = false,
+          scroll_up = { '<C-u>', '<C-\\><C-n><C-u>', mode = 't' },
+          scroll_down = { '<C-d>', '<C-\\><C-n><C-d>', mode = 't' },
         },
       },
     },
+  })
+
+  -- return to terminal mode when re-entering the window
+  vim.api.nvim_create_autocmd('WinEnter', {
+    callback = function()
+      if vim.bo.buftype == 'terminal' and vim.api.nvim_get_mode().mode == 'n' then
+        vim.cmd('startinsert')
+      end
+    end,
   })
 end
 

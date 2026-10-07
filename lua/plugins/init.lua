@@ -36,6 +36,7 @@ lazy.setup({
   require('plugins.supermaven'),
   require('plugins.hlslens'),
   require('plugins.im-select'),
+  require('plugins.review'),
 }, {
   ui = {
     backdrop = 100,

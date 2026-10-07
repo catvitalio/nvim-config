@@ -1,5 +1,6 @@
 local function config()
   require('scrollbar').setup({
+    excluded_buftypes = {},
     excluded_filetypes = {
       'dapui_scopes',
       'dapui_breakpoints',
