@@ -4,6 +4,7 @@ local function config()
     rust = { 'clippy' },
     go = { 'golangcilint' },
     javascript = { 'eslint' },
+    typescript = { 'eslint' },
     json = { 'eslint' },
   }
 

@@ -8,7 +8,25 @@ local function config()
   -- rust
   vim.lsp.enable('rust_analyzer')
   -- ts / js
-  vim.lsp.enable('tsserver')
+  vim.lsp.config('vtsls', {
+    settings = {
+      typescript = {
+        inlayHints = {
+          parameterNames = { enabled = 'literals' },
+          variableTypes = { enabled = true },
+          returnTypes = { enabled = true },
+        },
+      },
+      javascript = {
+        inlayHints = {
+          parameterNames = { enabled = 'literals' },
+          variableTypes = { enabled = true },
+          returnTypes = { enabled = true },
+        },
+      },
+    },
+  })
+  vim.lsp.enable('vtsls')
   -- json
   vim.lsp.enable('jsonls')
   -- spell
