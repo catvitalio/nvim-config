@@ -9,7 +9,6 @@ Opinionated Neovim config optimized for fast navigation, minimal UI noise, and s
 - **Plugin Manager**: [lazy.nvim](https://github.com/folke/lazy.nvim) for fast and efficient plugin management
 - **LSP Support**: Full Language Server Protocol integration with native Neovim LSP
 - **Autocompletion**: [blink.cmp](https://github.com/Saghen/blink.cmp) for fast, minimal completion
-- **AI Assistance**: [Supermaven](https://supermaven.com/) integration for AI-powered code suggestions
 - **File Explorer**: [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) for intuitive file navigation
 - **Fuzzy Finder**: [Telescope](https://github.com/nvim-telescope/telescope.nvim) with frecency + ui-select
 - **Syntax Highlighting**: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) + context window
@@ -57,7 +56,6 @@ Opinionated Neovim config optimized for fast navigation, minimal UI noise, and s
 │   │   ├── scrollbar.lua   # Scrollbar
 │   │   ├── session.lua     # Auto sessions
 │   │   ├── snacks.lua      # Lazygit + utilities
-│   │   ├── supermaven.lua  # AI suggestions
 │   │   ├── telescope.lua   # Finder
 │   │   └── treesitter.lua  # Treesitter + context
 │   ├── settings.lua        # Neovim settings
