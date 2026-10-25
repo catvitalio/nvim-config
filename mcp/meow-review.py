@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """MCP server exposing meow.review.nvim annotations to Claude Code."""
 
+from __future__ import annotations
+
 import json
 import os
 import subprocess
@@ -45,13 +47,16 @@ def save_store(annotations: list, cwd: str | None = None) -> None:
     path = get_store_path(cwd)
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    payload: list | dict = annotations
+    payload: dict = {"version": 1, "annotations": annotations}
     if path.exists():
-        with open(path) as f:
-            existing = json.load(f)
-        if isinstance(existing, dict):
-            existing["annotations"] = annotations
-            payload = existing
+        try:
+            with open(path) as f:
+                existing = json.load(f)
+            if isinstance(existing, dict):
+                existing["annotations"] = annotations
+                payload = existing
+        except (OSError, json.JSONDecodeError):
+            pass
 
     tmp = path.with_suffix(".tmp")
     with open(tmp, "w") as f:
