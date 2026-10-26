@@ -1,5 +1,35 @@
+local _claude = { frames = { '·', '✻', '✽', '✶', '✳', '✢', '✳', '✶', '✽', '✻' }, idx = 1, working = false }
+
+local function init_claude_monitor()
+  local path = vim.fn.expand('~/.claude/nvim-status')
+  local timer = vim.uv.new_timer()
+  timer:start(0, 120, vim.schedule_wrap(function()
+    local f = io.open(path, 'r')
+    local prev = _claude.working
+    _claude.working = f and vim.startswith(vim.trim(f:read('*a')), 'working') or false
+    if f then f:close() end
+    if _claude.working then
+      _claude.idx = (_claude.idx % #_claude.frames) + 1
+      require('lualine').refresh({ scope = 'all', place = { 'statusline' } })
+    elseif prev then
+      require('lualine').refresh({ scope = 'all', place = { 'statusline' } })
+    end
+  end))
+end
+
+local claude_component = {
+  function()
+    return _claude.working and _claude.frames[_claude.idx] or '✻'
+  end,
+  color = function()
+    return _claude.working and 'ClaudeWorking' or 'ClaudeIdle'
+  end,
+  padding = 0,
+}
+
 local function config()
   local lualine = require('lualine')
+  init_claude_monitor()
 
   local filename = {
     'filename',
@@ -71,7 +101,7 @@ local function config()
       },
       lualine_x = {},
       lualine_y = {},
-      lualine_z = {},
+      lualine_z = { claude_component },
     },
     inactive_sections = {
       lualine_a = {},

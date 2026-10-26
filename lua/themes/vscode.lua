@@ -64,6 +64,16 @@ return function()
     lualine_a_command = { fg = black, bg = black },
     lualine_b_command = { fg = black, bg = black },
     lualine_c_command = { fg = black, bg = black },
+    lualine_z_normal = { fg = grey, bg = black },
+    lualine_z_insert = { fg = grey, bg = black },
+    lualine_z_visual = { fg = grey, bg = black },
+    lualine_z_replace = { fg = grey, bg = black },
+    lualine_z_command = { fg = grey, bg = black },
+    lualine_z_inactive = { fg = grey, bg = black },
+    lualine_z_terminal = { fg = grey, bg = black },
+    -- Claude status component
+    ClaudeIdle    = { fg = grey,      bg = black },
+    ClaudeWorking = { fg = '#CC7700', bg = black },
 
     -- Treesitter
     TreesitterContext = { fg = white, bg = black },
