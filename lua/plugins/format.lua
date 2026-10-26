@@ -12,6 +12,7 @@ local function config()
       json = { 'prettierd', 'prettier', stop_after_first = true },
       toml = { 'taplo' },
       yaml = { 'prettierd', 'prettier', stop_after_first = true },
+      swift = { 'swiftformat' },
       nix = { 'nixfmt' },
       xml = { 'xmllint' },
     },

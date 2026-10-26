@@ -5,6 +5,7 @@ local function config()
     go = { 'golangcilint' },
     javascript = { 'eslint' },
     typescript = { 'eslint' },
+    swift = { 'swiftlint' },
     json = { 'eslint' },
   }
 

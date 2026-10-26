@@ -44,6 +44,8 @@ local function config()
     },
   })
   vim.lsp.enable('nil_ls')
+  -- swift
+  vim.lsp.enable('sourcekit')
 end
 
 return {
