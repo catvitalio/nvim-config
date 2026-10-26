@@ -73,7 +73,7 @@ return function()
     lualine_z_terminal = { fg = grey, bg = black },
     -- Claude status component
     ClaudeIdle    = { fg = grey,      bg = black },
-    ClaudeWorking = { fg = '#CC7700', bg = black },
+    ClaudeWorking = { fg = '#d77757', bg = black },
 
     -- Treesitter
     TreesitterContext = { fg = white, bg = black },
