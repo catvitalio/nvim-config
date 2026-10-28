@@ -2,6 +2,18 @@ local _claude = { frames = { '·', '✻', '✽', '✶', '✳', '✢', '✳', '�
 
 local function init_claude_monitor()
   local path = vim.fn.expand('~/.claude/nvim-status')
+
+  vim.api.nvim_create_autocmd('TermOpen', {
+    callback = function(ev)
+      if not vim.api.nvim_buf_get_name(ev.buf):find('claude', 1, true) then return end
+      vim.keymap.set('t', '<Esc>', function()
+        local f = io.open(path, 'w')
+        if f then f:write('idle'); f:close() end
+        local job_id = vim.b[ev.buf].terminal_job_id
+        if job_id then vim.api.nvim_chan_send(job_id, '\27') end
+      end, { buffer = ev.buf })
+    end,
+  })
   local timer = vim.uv.new_timer()
   timer:start(0, 120, vim.schedule_wrap(function()
     local f = io.open(path, 'r')
