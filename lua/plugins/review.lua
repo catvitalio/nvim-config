@@ -133,4 +133,8 @@ return {
         },
         auto_reload = { enabled = true, interval = 10, notify = false },
     },
+    config = function(_, opts)
+        require('fude').setup(opts)
+        require('utils.fude_lock').setup()
+    end,
 }
