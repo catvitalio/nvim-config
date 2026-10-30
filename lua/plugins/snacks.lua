@@ -86,6 +86,10 @@ local float_win = {
   backdrop = false,
 }
 
+-- Snacks identifies a terminal by its command string: get() and toggle() must
+-- receive the exact same string or a second terminal gets created.
+local codex_cmd = 'sh -c "codex resume --last 2>/dev/null || codex"'
+
 local function term_keys()
   local keys = {}
   for i = 1, 10 do
@@ -119,21 +123,18 @@ return {
     {
       '<A- >',
       function()
-        local existing = Snacks.terminal.get(
-          'sh -c "claude --continue 2>/dev/null || claude"',
-          { cwd = vim.fn.getcwd(), create = false }
-        )
+        local existing = Snacks.terminal.get(codex_cmd, { cwd = vim.fn.getcwd(), create = false })
         hide_others(existing and existing.buf)
-        Snacks.terminal.toggle('sh -c "claude --continue 2>/dev/null || claude"', {
+        Snacks.terminal.toggle(codex_cmd, {
           cwd = vim.fn.getcwd(),
           win = vim.tbl_extend(
             'force',
             float_win,
-            { title = ' Claude Code ', title_pos = 'center' }
+            { title = ' Codex ', title_pos = 'center' }
           ),
         })
       end,
-      desc = 'Claude Code',
+      desc = 'Codex',
       mode = { 'n', 't' },
     },
     {

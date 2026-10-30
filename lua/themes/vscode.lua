@@ -71,9 +71,9 @@ return function()
     lualine_z_command = { fg = grey, bg = black },
     lualine_z_inactive = { fg = grey, bg = black },
     lualine_z_terminal = { fg = grey, bg = black },
-    -- Claude status component
-    ClaudeIdle    = { fg = grey,      bg = black },
-    ClaudeWorking = { fg = '#d77757', bg = black },
+    -- Codex status component
+    CodexIdle    = { fg = grey,      bg = black },
+    CodexWorking = { fg = white,     bg = black },
 
     -- Treesitter
     TreesitterContext = { fg = white, bg = black },

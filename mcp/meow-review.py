@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MCP server exposing meow.review.nvim annotations to Claude Code."""
+"""MCP server exposing meow.review.nvim annotations to Codex."""
 
 from __future__ import annotations
 
