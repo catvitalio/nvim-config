@@ -14,6 +14,8 @@ return function()
   local colors = {
     -- Float windows
     FloatBorder = { fg = grey, bg = black },
+    FloatTitle = { fg = white, bg = black },
+    FloatFooter = { fg = grey, bg = black },
     NormalFloat = { fg = white, bg = black },
     SnacksPickerBorder = { fg = grey, bg = black },
     SnacksPickerBoxBorder = { fg = grey, bg = black },

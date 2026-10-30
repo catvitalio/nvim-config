@@ -1,6 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 vim.o.termguicolors = true
 vim.o.mousemoveevent = true
 vim.opt.termsync = false
@@ -170,22 +167,22 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
 
 -- Splits
-vim.keymap.set('n', '<leader>h', '<C-w>h')
-vim.keymap.set('n', '<leader>j', '<C-w>j')
-vim.keymap.set('n', '<leader>k', '<C-w>k')
-vim.keymap.set('n', '<leader>l', '<C-w>l')
-vim.keymap.set('n', '<leader>s', '<C-w>s')
-vim.keymap.set('n', '<leader>v', '<C-w>v')
-vim.keymap.set('n', '<leader>q', '<C-w>q')
-vim.keymap.set('n', '<leader>o', '<C-w>o')
-vim.keymap.set('n', '<leader>H', '<C-w>H')
-vim.keymap.set('n', '<leader>J', '<C-w>J')
-vim.keymap.set('n', '<leader>K', '<C-w>K')
-vim.keymap.set('n', '<leader>L', '<C-w>L')
-vim.keymap.set('n', '<leader>=', '<C-w>=')
-vim.keymap.set('n', '<leader>+', '<C-w>+')
-vim.keymap.set('n', '<leader>-', '<C-w>-')
-vim.keymap.set('n', '<leader>>', '<C-w>>')
-vim.keymap.set('n', '<leader><', '<C-w><')
-vim.keymap.set('n', '<leader>_', '<C-w>_')
-vim.keymap.set('n', '<leader>|', '<C-w>|')
+vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Focus left window' })
+vim.keymap.set('n', '<leader>j', '<C-w>j', { desc = 'Focus window below' })
+vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = 'Focus window above' })
+vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = 'Focus right window' })
+vim.keymap.set('n', '<leader>s', '<C-w>s', { desc = 'Split horizontally' })
+vim.keymap.set('n', '<leader>v', '<C-w>v', { desc = 'Split vertically' })
+vim.keymap.set('n', '<leader>q', '<C-w>q', { desc = 'Close window' })
+vim.keymap.set('n', '<leader>o', '<C-w>o', { desc = 'Close other windows' })
+vim.keymap.set('n', '<leader>H', '<C-w>H', { desc = 'Move window left' })
+vim.keymap.set('n', '<leader>J', '<C-w>J', { desc = 'Move window down' })
+vim.keymap.set('n', '<leader>K', '<C-w>K', { desc = 'Move window up' })
+vim.keymap.set('n', '<leader>L', '<C-w>L', { desc = 'Move window right' })
+vim.keymap.set('n', '<leader>=', '<C-w>=', { desc = 'Equalize window sizes' })
+vim.keymap.set('n', '<leader>+', '<C-w>+', { desc = 'Increase window height' })
+vim.keymap.set('n', '<leader>-', '<C-w>-', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<leader>>', '<C-w>>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<leader><', '<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<leader>_', '<C-w>_', { desc = 'Maximize window height' })
+vim.keymap.set('n', '<leader>|', '<C-w>|', { desc = 'Maximize window width' })

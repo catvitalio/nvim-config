@@ -87,7 +87,7 @@ return {
     keys = {
         { '<leader>rr', '<cmd>FudeReviewLocal<cr>', desc = 'Start local review' },
         { '<leader>rq', '<cmd>FudeReviewStop<cr>',  desc = 'Stop review' },
-        { '<A-r>',      add_comment,               mode = { 'n', 'x' },        desc = 'Add review comment' },
+        { '<A-r>',      add_comment,                mode = { 'n', 'x' },        desc = 'Add review comment' },
         {
             '<M-S-r>',
             function()

@@ -36,6 +36,7 @@ lazy.setup({
   require('plugins.hlslens'),
   require('plugins.im-select'),
   require('plugins.review'),
+  require('plugins.which-key'),
 }, {
   ui = {
     backdrop = 100,
