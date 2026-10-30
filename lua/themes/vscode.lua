@@ -1,7 +1,7 @@
 return function()
   local utils = require('themes.utils')
 
-  local black = '#1f1f1f'
+  local black = '#1e1e1e'
   local white = '#d4d4d4'
   local grey = '#5a5a5a'
   local dark_grey = '#222222'
@@ -85,5 +85,7 @@ return function()
     NvimDapVirtualText = { fg = grey, italic = true },
   }
 
-  return utils.setup_theme('Mofiqul/vscode.nvim', {}, colors)
+  return utils.setup_theme('Mofiqul/vscode.nvim', {
+    color_overrides = { vscBack = black },
+  }, colors)
 end

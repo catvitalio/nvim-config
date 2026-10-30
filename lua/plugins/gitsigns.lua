@@ -6,6 +6,7 @@ return {
   },
   config = function()
     require('gitsigns').setup({
+      attach_to_untracked = true,
       current_line_blame = true,
       current_line_blame_opts = {
         virt_text = true,
