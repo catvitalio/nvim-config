@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require('lazy')
 
 lazy.setup({
-  require('themes.vscode')(),
+  require('themes.catppuccin').plugin(),
   require('plugins.session'),
   require('plugins.neotree'),
   require('plugins.cmdline'),

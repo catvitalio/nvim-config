@@ -1,6 +1,9 @@
 local function config()
   require('cmdline').setup({
     cmdtype = ':/?',
+    hl = {
+      substr = 'CmdlineMatch',
+    },
     window = {
       matchFuzzy = true,
       offset = 1,
