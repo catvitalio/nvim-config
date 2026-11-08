@@ -13,8 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy = require('lazy')
 
+vim.cmd.colorscheme('graphite')
+
 lazy.setup({
-  require('themes.catppuccin').plugin(),
   require('plugins.session'),
   require('plugins.neotree'),
   require('plugins.cmdline'),

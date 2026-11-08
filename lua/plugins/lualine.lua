@@ -70,7 +70,6 @@ local codex_component = {
 
 local function config()
   local lualine = require('lualine')
-  local theme = require('themes.catppuccin').lualine()
   init_codex_monitor()
 
   local filename = {
@@ -112,7 +111,6 @@ local function config()
 
   lualine.setup({
     options = {
-      theme = theme,
       globalstatus = true,
       component_separators = '',
       section_separators = '',

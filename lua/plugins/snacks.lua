@@ -1,8 +1,21 @@
 local function config()
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    group = vim.api.nvim_create_augroup('LazygitDiffTheme', { clear = true }),
+    callback = function()
+      vim.schedule(function()
+        Snacks.config.lazygit.config.git.paging.pager = require('themes.delta').pager()
+      end)
+    end,
+  })
   require('snacks').setup({
     lazygit = {
       enabled = true,
       configure = true,
+      theme = {
+        activeBorderColor = { fg = 'SnacksPickerMatch', bold = true },
+        searchingActiveBorderColor = { fg = 'SnacksPickerMatch', bold = true },
+        selectedLineBgColor = { bg = 'SnacksPickerListCursorLine' },
+      },
       config = {
         os = {
           edit = 'nvim --server "$NVIM" --remote-send "<Esc><cmd>q<cr><cmd>e {{filename}}<cr>"',
@@ -10,7 +23,7 @@ local function config()
         git = {
           paging = {
             colorArg = 'always',
-            pager = 'delta --dark --paging=never',
+            pager = require('themes.delta').pager(),
           },
         },
         gui = {
@@ -52,23 +65,21 @@ local function config()
     },
     terminal = {
       enabled = true,
+      auto_insert = true,
       win = {
         keys = {
           term_normal = false,
-          scroll_up = { '<C-u>', '<C-\\><C-n><C-u>', mode = 't' },
-          scroll_down = { '<C-d>', '<C-\\><C-n><C-d>', mode = 't' },
+          terminal_normal = {
+            '<A-Esc>',
+            function()
+              vim.cmd.stopinsert()
+            end,
+            mode = 't',
+            desc = 'Terminal normal mode',
+          },
         },
       },
     },
-  })
-
-  -- return to terminal mode when re-entering the window
-  vim.api.nvim_create_autocmd('WinEnter', {
-    callback = function()
-      if vim.bo.buftype == 'terminal' and vim.api.nvim_get_mode().mode == 'n' then
-        vim.cmd('startinsert')
-      end
-    end,
   })
 end
 
@@ -127,11 +138,7 @@ return {
         hide_others(existing and existing.buf)
         Snacks.terminal.toggle(codex_cmd, {
           cwd = vim.fn.getcwd(),
-          win = vim.tbl_extend(
-            'force',
-            float_win,
-            { title = ' Codex ', title_pos = 'center' }
-          ),
+          win = vim.tbl_extend('force', float_win, { title = ' Codex ', title_pos = 'center' }),
         })
       end,
       desc = 'Codex',

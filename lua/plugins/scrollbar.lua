@@ -1,6 +1,6 @@
 local function config()
   require('scrollbar').setup({
-    excluded_buftypes = {},
+    excluded_buftypes = { 'terminal' },
     excluded_filetypes = {
       'dapui_scopes',
       'dapui_breakpoints',
@@ -28,6 +28,6 @@ end
 
 return {
   'petertriho/nvim-scrollbar',
-  event = { 'BufReadPost', 'BufNewFile', 'TermOpen' },
+  event = { 'BufReadPost', 'BufNewFile' },
   config = config,
 }
