@@ -2,6 +2,7 @@ local function config()
   require('cmdline').setup({
     cmdtype = ':/?',
     hl = {
+      default = 'Normal',
       substr = 'CmdlineMatch',
     },
     window = {

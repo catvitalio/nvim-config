@@ -7,21 +7,16 @@ function M.pager()
   end
   local bg = color('Normal', 'bg', vim.o.background == 'dark' and '#000000' or '#ffffff')
   local fg = color('Normal', 'fg', vim.o.background == 'dark' and '#ffffff' or '#000000')
-  local flavour = (vim.g.colors_name or ''):match('^catppuccin%-(%a+)$')
-  local names = { mocha = 'Mocha', frappe = 'Frappe', macchiato = 'Macchiato', latte = 'Latte' }
-  local syntax = vim.g.colors_name == 'graphite' and 'Catppuccin Mocha'
-    or names[flavour] and ('Catppuccin ' .. names[flavour]) or 'none'
-  local text = syntax ~= 'none' and 'syntax' or fg
   local function style(group, fallback)
-    return text .. ' ' .. color(group, 'bg', fallback or bg)
+    return fg .. ' ' .. color(group, 'bg', fallback or bg)
   end
   local options = {
-    { '--syntax-theme', syntax },
+    { '--syntax-theme', 'none' },
     { '--minus-style', style('GitSignsDeleteVirtLn', color('DiffDelete', 'bg', bg)) },
     { '--plus-style', style('GitSignsAddLn', color('DiffAdd', 'bg', bg)) },
     { '--minus-emph-style', style('GitSignsDeleteInline', color('DiffText', 'bg', bg)) },
     { '--plus-emph-style', style('GitSignsAddInline', color('DiffText', 'bg', bg)) },
-    { '--zero-style', text .. ' ' .. bg },
+    { '--zero-style', fg .. ' ' .. bg },
   }
   local args = { 'delta', '--' .. vim.o.background, '--paging=never', '--true-color=always' }
   for _, option in ipairs(options) do
