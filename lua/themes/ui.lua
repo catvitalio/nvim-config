@@ -73,6 +73,9 @@ function M.apply()
   local function set(group, style)
     vim.api.nvim_set_hl(0, group, style)
   end
+  set('ScrollbarTrack', { bg = p.background, blend = 0 })
+  set('ScrollbarThumb', { bg = p.muted, blend = 30 })
+  set('ScrollbarThumbPressed', { bg = p.active, blend = 30 })
   for _, group in ipairs({
     'NormalNC',
     'NormalFloat',
