@@ -10,6 +10,7 @@ function M.lualine()
       style.bg = colors.bg
     end
   end
+  theme.normal.a.fg = colors.blue
   return theme
 end
 
