@@ -7,16 +7,18 @@ function M.pager()
   end
   local bg = color('Normal', 'bg', vim.o.background == 'dark' and '#000000' or '#ffffff')
   local fg = color('Normal', 'fg', vim.o.background == 'dark' and '#ffffff' or '#000000')
+  local syntax = vim.g.colors_name == 'obscure' and 'Obscure' or 'none'
+  local text = syntax == 'none' and fg or 'syntax'
   local function style(group, fallback)
-    return fg .. ' ' .. color(group, 'bg', fallback or bg)
+    return text .. ' ' .. color(group, 'bg', fallback or bg)
   end
   local options = {
-    { '--syntax-theme', 'none' },
+    { '--syntax-theme', syntax },
     { '--minus-style', style('GitSignsDeleteVirtLn', color('DiffDelete', 'bg', bg)) },
     { '--plus-style', style('GitSignsAddLn', color('DiffAdd', 'bg', bg)) },
     { '--minus-emph-style', style('GitSignsDeleteInline', color('DiffText', 'bg', bg)) },
     { '--plus-emph-style', style('GitSignsAddInline', color('DiffText', 'bg', bg)) },
-    { '--zero-style', fg .. ' ' .. bg },
+    { '--zero-style', text .. ' ' .. bg },
   }
   local args = { 'delta', '--' .. vim.o.background, '--paging=never', '--true-color=always' }
   for _, option in ipairs(options) do

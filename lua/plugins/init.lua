@@ -15,6 +15,7 @@ local lazy = require('lazy')
 
 lazy.setup({
   require('themes.obscure').plugin(),
+  require('plugins.devicons'),
   require('plugins.session'),
   require('plugins.neotree'),
   require('plugins.cmdline'),
