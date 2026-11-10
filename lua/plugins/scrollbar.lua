@@ -16,7 +16,6 @@ local function config()
       'cmp_menu',
       'noice',
       'prompt',
-      'neo-tree',
       'snacks_picker_list',
       'snacks_picker_input',
       'snacks_layout_box',

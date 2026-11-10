@@ -5,7 +5,7 @@ local function config()
     'filename',
     cond = function()
       local ft = vim.bo.filetype
-      return vim.bo.buftype ~= 'terminal' and ft ~= 'neo-tree' and not ft:match('^snacks_picker')
+      return vim.bo.buftype ~= 'terminal' and not ft:match('^snacks_picker')
     end,
     path = 1,
     separator = { left = '', right = '' },

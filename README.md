@@ -9,7 +9,7 @@ Opinionated Neovim config optimized for fast navigation, minimal UI noise, and s
 - **Plugin Manager**: [lazy.nvim](https://github.com/folke/lazy.nvim) for fast and efficient plugin management
 - **LSP Support**: Full Language Server Protocol integration with native Neovim LSP
 - **Autocompletion**: [blink.cmp](https://github.com/Saghen/blink.cmp) for fast, minimal completion
-- **File Explorer**: [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) for intuitive file navigation
+- **File Explorer**: [Snacks explorer](https://github.com/folke/snacks.nvim) with a floating tree and file preview
 - **Fuzzy Finder**: [Telescope](https://github.com/nvim-telescope/telescope.nvim) with frecency + ui-select
 - **Syntax Highlighting**: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) + context window
 - **Git Integration**: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) for Git decorations and hunks
@@ -68,7 +68,6 @@ It requires this configuration's plugins and delta/bat with the Obscure theme in
 │   │   ├── lint.lua        # Linting
 │   │   ├── lsp.lua         # LSP config
 │   │   ├── lualine.lua     # Status line
-│   │   ├── neotree.lua     # File explorer
 │   │   ├── scrollbar.lua   # Scrollbar
 │   │   ├── session.lua     # Auto sessions
 │   │   ├── snacks.lua      # Lazygit + utilities
@@ -131,7 +130,7 @@ Lazy.nvim will automatically install all plugins on first launch.
 
 ## Key Bindings (highlights)
 
-- `Alt+e`: Neo-tree (float reveal)
+- `Alt+e`: Snacks explorer (floating tree with preview)
 - `Alt+p`: Telescope frecency (cwd)
 - `Alt+f`: Telescope live grep
 - `Alt+g`: Lazygit (Snacks)

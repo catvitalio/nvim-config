@@ -19,7 +19,6 @@ lazy.setup({
   }),
   require('plugins.devicons'),
   require('plugins.session'),
-  require('plugins.neotree'),
   require('plugins.cmdline'),
   require('plugins.barbar'),
   require('plugins.bufstack'),

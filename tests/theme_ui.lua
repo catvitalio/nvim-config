@@ -13,7 +13,7 @@ local function check_ui()
     for _, g in ipairs({
       'NormalFloat',
       'NormalNC',
-      'NeoTreeFloatNormal',
+      'SnacksPickerPreview',
       'BufferCurrent',
       'BufferInactive',
       'lualine_a_normal',
@@ -33,17 +33,25 @@ local function check_ui()
     for _, g in ipairs({ 'BufferInactive', 'lualine_c_normal', 'Whitespace', 'SnacksIndent' }) do
       assert(hl(g).fg == num(p.muted), label .. ' muted ' .. g)
     end
-    assert(hl('NeoTreeCursorLine').bg == hl('SnacksPickerListCursorLine').bg)
+    assert(hl('PmenuSel').bg == hl('SnacksPickerListCursorLine').bg)
     assert(hl('Visual').bg == hl('LspReferenceText').bg)
     assert(Snacks.config.lazygit.config.git.paging.pager == require('themes.delta').pager())
     local _, icon = require('nvim-web-devicons').get_icon_color('a.py', 'py', { default = true })
     assert(icon == string.format('#%06x', hl('DiagnosticWarn').fg))
   end
   check('initial')
-  vim.cmd('Neotree float')
-  vim.wait(100)
-  check('Neo-tree')
-  vim.cmd('Neotree close')
+  vim.o.columns = 180
+  vim.o.lines = 50
+  vim.cmd('edit lua/plugins/snacks.lua')
+  local explorer = Snacks.picker.explorer()
+  vim.wait(500, function()
+    return explorer.list.win:win_valid() and explorer.preview.win:win_valid()
+  end)
+  assert(explorer.list.win:win_valid())
+  assert(explorer.preview.win:win_valid())
+  check('Snacks explorer')
+  explorer:close()
+  assert(vim.fn.exists(':Neotree') == 0)
   vim.cmd.colorscheme('habamax')
   vim.wait(100)
   check('habamax')
@@ -62,7 +70,7 @@ local function check_ui()
   vim.cmd.colorscheme('obscure')
   vim.wait(100)
   check('rapid switch')
-  vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { bg = 0xff0000 })
+  vim.api.nvim_set_hl(0, 'SnacksPickerPreview', { bg = 0xff0000 })
   vim.api.nvim_exec_autocmds('User', { pattern = 'LazyLoad' })
   vim.wait(100)
   check('late plugin update')

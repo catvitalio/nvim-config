@@ -49,6 +49,17 @@ local function config()
     },
     picker = {
       enabled = true,
+      sources = {
+        explorer = {
+          layout = { preset = 'default', preview = true },
+          auto_close = true,
+          jump = { close = true },
+          diagnostics = false,
+          hidden = true,
+          ignored = true,
+          exclude = { '.git' },
+        },
+      },
       layouts = {
         default = {
           layout = { backdrop = false },
@@ -123,6 +134,13 @@ return {
   lazy = false,
   priority = 1000,
   keys = vim.list_extend(term_keys(), {
+    {
+      '<A-e>',
+      function()
+        Snacks.picker.explorer()
+      end,
+      desc = 'File explorer',
+    },
     {
       '<A- >',
       function()
