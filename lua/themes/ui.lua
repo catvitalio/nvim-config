@@ -92,6 +92,9 @@ function M.apply()
     'SnacksPickerPreview',
     'SnacksNormal',
     'SnacksNormalNC',
+    'LazyNormal',
+    'LazyButton',
+    'LazyTaskOutput',
   }) do
     set(group, { fg = p.text, bg = p.background })
   end
@@ -122,6 +125,9 @@ function M.apply()
   end
   for _, group in ipairs({ 'SnacksPickerMatch', 'CmdlineMatch' }) do
     set(group, { fg = p.active, bold = true })
+  end
+  for _, group in ipairs({ 'LazyH1', 'LazyButtonActive' }) do
+    set(group, { fg = p.active, bg = p.selection, bold = true })
   end
   set('SnacksPickerDir', { fg = p.secondary })
   set('SnacksPickerTotals', { fg = p.secondary })
