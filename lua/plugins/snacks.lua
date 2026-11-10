@@ -1,5 +1,6 @@
 local function config()
   require('snacks').setup({
+    image = { enabled = true },
     lazygit = {
       enabled = true,
       configure = true,

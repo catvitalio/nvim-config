@@ -14,6 +14,9 @@ local languages = {
   'nix',
   'vim',
   'swift',
+  'markdown',
+  'markdown_inline',
+  'html',
 }
 
 local function config()
