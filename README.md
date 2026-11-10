@@ -47,7 +47,7 @@ These are the configured LSP names and external executables. Install only those 
 | Language | LSP configuration | Formatters | Linters |
 | --- | --- | --- | --- |
 | Python | `ty` | Ruff fixes, formatting, and import organization | `ruff` |
-| Lua | `lua_ls` | `stylua` | — |
+| Lua | `lua_ls` | `stylua` | `selene` |
 | Go | `gopls` | `goimports`, `gofmt` | `golangci-lint` |
 | Rust | `rust_analyzer` | `rustfmt` | `clippy` through Cargo |
 | JavaScript / TypeScript / JSX / TSX | `vtsls` | `prettierd` or `prettier` | `eslint` for JavaScript / TypeScript |
@@ -177,6 +177,19 @@ Change `active_color` for the mode indicator, active tab separators, picker and 
 Sensitive filename patterns are assigned the `sensitive` filetype. This is filetype detection, not a general mechanism for preventing external tools from reading files.
 
 ## Verification
+
+Install the commit checks once per clone:
+
+```sh
+uv tool install pre-commit
+brew install selene
+pre-commit install
+pre-commit run --all-files
+```
+
+On Linux, install Selene through your package manager or `cargo install selene --locked` instead of Homebrew. StyLua and Ruff are installed automatically in isolated pre-commit environments. Selene must be on `PATH` when committing.
+
+The hooks format Lua with StyLua, lint Lua with Selene, and lint/format Python with Ruff using `mcp/pyproject.toml`. Selene allows Neovim's `vim`, Snacks' `Snacks`, and LuaJIT's `bit` globals; mixed tables and `_G` access are allowed for plugin specs and editor callbacks. Formatting hooks modify files; review and stage their changes before retrying a commit.
 
 With plugins and the external Obscure bat theme installed:
 

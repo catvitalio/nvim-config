@@ -1,5 +1,6 @@
 local function config()
   require('lint').linters_by_ft = {
+    lua = { 'selene' },
     python = { 'ruff' },
     rust = { 'clippy' },
     go = { 'golangcilint' },

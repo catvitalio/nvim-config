@@ -1,0 +1,13 @@
+base: lua51
+globals:
+  assert:
+    args:
+      - type: any
+      - type: any
+        required: false
+  bit:
+    any: true
+  vim:
+    any: true
+  Snacks:
+    any: true
