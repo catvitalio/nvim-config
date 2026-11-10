@@ -14,7 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require('lazy')
 
 lazy.setup({
-  require('themes.obscure').plugin(),
+  require('themes.ui').plugin(require('themes.obscure').plugin(), {
+    active_color = '#6a8cbc',
+  }),
   require('plugins.devicons'),
   require('plugins.session'),
   require('plugins.neotree'),

@@ -1,12 +1,4 @@
 local function config()
-  vim.api.nvim_create_autocmd('ColorScheme', {
-    group = vim.api.nvim_create_augroup('LazygitDiffTheme', { clear = true }),
-    callback = function()
-      vim.schedule(function()
-        Snacks.config.lazygit.config.git.paging.pager = require('themes.delta').pager()
-      end)
-    end,
-  })
   require('snacks').setup({
     lazygit = {
       enabled = true,

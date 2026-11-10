@@ -30,6 +30,22 @@ Opinionated Neovim config optimized for fast navigation, minimal UI noise, and s
 - **Clipboard**: OSC 52 clipboard support for remote environments
 - **Sensitive Files**: Automatic filetype for secrets to disable inline AI completions
 
+## UI styling
+
+`lua/themes/ui.lua` applies the same interface styling to any active colorscheme.
+Set `active_color` in `lua/plugins/init.lua` to change the shared accent for the mode
+indicator, active tab separators, search matches, and lazygit's active border.
+Backgrounds and muted text come from the theme; selection and diff backgrounds are
+blended from its colors. The colorscheme itself remains responsible for code syntax.
+
+Lualine and devicons follow colorscheme changes automatically. Lazygit uses the new
+colors on its next launch. Delta's syntax theme is separate: currently Obscure has
+a matching custom bat theme; other colorschemes use plain text with matching diff
+backgrounds until a corresponding syntax theme is configured.
+
+Run the integration check with `nvim --headless '+luafile tests/theme_ui.lua' +qa`.
+It requires this configuration's plugins and delta/bat with the Obscure theme installed.
+
 ## Structure
 
 ```
@@ -60,8 +76,9 @@ Opinionated Neovim config optimized for fast navigation, minimal UI noise, and s
 │   │   └── treesitter.lua  # Treesitter + context
 │   ├── settings.lua        # Neovim settings
 │   ├── themes/
-│   │   ├── utils.lua       # Theme helpers
-│   │   └── vscode.lua      # VSCode theme overrides
+│   │   ├── ui.lua          # Shared UI styling and active_color
+│   │   ├── delta.lua       # Lazygit diff colors
+│   │   └── obscure.lua     # Active colorscheme
 │   └── utils/
 │       ├── get_json_env.lua # JSON env helper
 │       └── init.lua         # Utils entry

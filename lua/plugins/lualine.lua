@@ -5,9 +5,7 @@ local function config()
     'filename',
     cond = function()
       local ft = vim.bo.filetype
-      return vim.bo.buftype ~= 'terminal'
-        and ft ~= 'neo-tree'
-        and not ft:match('^snacks_picker')
+      return vim.bo.buftype ~= 'terminal' and ft ~= 'neo-tree' and not ft:match('^snacks_picker')
     end,
     path = 1,
     separator = { left = '', right = '' },
@@ -40,7 +38,9 @@ local function config()
 
   lualine.setup({
     options = {
-      theme = vim.g.colors_name == 'obscure' and require('themes.obscure').lualine() or 'auto',
+      theme = function()
+        return require('themes.ui').lualine()
+      end,
       globalstatus = true,
       component_separators = '',
       section_separators = '',
